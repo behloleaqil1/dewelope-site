@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node -e \"process.exit(require('child_process').spawnSync('vite',['build'],{stdio:'inherit'}).status||0)\"",
+    "build": "node -e \"const{spawn}=require('child_process');const p=spawn('vite',['build']);let done=false;const fwd=s=>d=>{process[s].write(d);if(d.toString().includes('built in')){done=true;setTimeout(()=>process.exit(0),500);}};p.stdout.on('data',fwd('stdout'));p.stderr.on('data',fwd('stderr'));p.on('exit',c=>{if(!done)process.exit(c||0);});\"",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
