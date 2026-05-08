@@ -1,12 +1,12 @@
 {
   "name": "dewelope-site",
-  "description": "Dewelope — Modern Software House · agency site",
+  "description": "Dewelope \u2014 Modern Software House \u00b7 agency site",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node -e \"process.exit(require('child_process').spawnSync('vite',['build'],{stdio:'inherit'}).status||0)\"",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
