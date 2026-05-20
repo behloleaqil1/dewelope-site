@@ -5,6 +5,8 @@ import LazyVisible from "./components/LazyVisible.jsx";
 import ScrollProgress from "./components/ScrollProgress.jsx";
 import Clients from "./components/Clients.jsx";
 import SideNav from "./components/SideNav.jsx";
+import SeoSchemas from "./components/SeoSchemas.jsx";
+import HomeMeta from "./components/HomeMeta.jsx";
 
 const Works = lazy(() => import("./components/Works.jsx"));
 const Process = lazy(() => import("./components/Process.jsx"));
@@ -27,6 +29,8 @@ const SectionFallback = ({label = "Loading"}) => (
 function App() {
     return (
         <BrowserRouter>
+            <SeoSchemas/>
+            <HomeMeta/>
             <SmoothScroll/>
             <Cursor/>
             <ScrollProgress/>
