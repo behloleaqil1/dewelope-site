@@ -1,6 +1,6 @@
 {
   "name": "dewelope-site",
-  "description": "Dewelope \u2014 Modern Software House \u00b7 agency site",
+  "description": "Dewelope — Modern Software House · agency site",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -20,6 +20,7 @@
     "maath": "^0.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet-async": "^3.0.0",
     "react-icons": "^5.6.0",
     "react-intersection-observer": "^10.0.3",
     "react-router-dom": "^6.11.1",
