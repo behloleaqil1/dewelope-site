@@ -21,6 +21,14 @@ const Footer = () => {
                     <p className="mt-5 text-secondary text-sm max-w-sm leading-relaxed">
                         A focused software house shipping modern platforms, financial systems and branchless-banking infrastructure from {profile.location}. Available for new engagements worldwide.
                     </p>
+                    <p className="mt-4 text-secondary text-sm max-w-sm leading-relaxed">
+                        We also build and maintain{" "}
+                        <a href="https://tools.dewelope.com"
+                           className="text-white underline decoration-white/30 underline-offset-2 hover:decoration-white transition-colors">
+                            DeWelope Tools
+                        </a>{" "}
+                        — a free suite of 2,000+ developer, conversion, calculator and text utilities used daily by engineers and teams.
+                    </p>
                 </div>
 
                 <div className="md:col-span-3">
