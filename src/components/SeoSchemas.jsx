@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Dewelope",
+  "name": "DeWelope Softwares",
   "url": "https://dewelope.com",
   "potentialAction": {
     "@type": "SearchAction",
@@ -15,7 +15,7 @@ const websiteSchema = {
 const professionalServiceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "Dewelope",
+  "name": "DeWelope Softwares",
   "url": "https://dewelope.com",
   "description": "A focused software house building enterprise platforms, financial systems and branchless-banking infrastructure.",
   "address": {

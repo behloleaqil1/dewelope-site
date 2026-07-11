@@ -30,7 +30,7 @@ const Navbar = () => {
                 <a
                     href="#hero"
                     className="flex items-center gap-3 group"
-                    aria-label="Dewelope — home"
+                    aria-label="DeWelope Softwares — home"
                 >
                     <div className="relative w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-glow">
                         <img src="/logo.svg" alt="" width="40" height="40" className="w-10 h-10"/>
@@ -38,7 +38,7 @@ const Navbar = () => {
                     </div>
                     <div className="hidden sm:flex flex-col leading-tight">
                         <span className="font-display font-semibold text-[20px] tracking-tight leading-none">
-                            <span className="text-white">de</span><span className="text-gradient-accent">we</span><span className="text-white">lope</span>
+                            <span className="text-white">de</span><span className="text-gradient-accent">we</span><span className="text-white">lope</span><span className="text-muted font-normal ml-1.5">Softwares</span>
                         </span>
                         <span className="text-[10px] text-muted font-mono uppercase tracking-[0.3em] mt-0.5">
                             {profile.role}

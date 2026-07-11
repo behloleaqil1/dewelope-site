@@ -29,8 +29,8 @@ import {
 
 // === Agency identity ===
 export const profile = {
-    name: "Dewelope",
-    firstName: "Dewelope",
+    name: "DeWelope Softwares",
+    firstName: "DeWelope Softwares",
     lastName: "",
     role: "Modern Software House",
     tagline:
@@ -42,7 +42,7 @@ export const profile = {
     phone: "+92 335 8432691",
     website: "https://dewelope.com",
     socials: {
-        github: "https://github.com/behlole",
+        github: "https://github.com/behloleaqil1",
         linkedin: "https://linkedin.com/in/behlole",
         twitter: "https://twitter.com/",
     },
@@ -51,7 +51,7 @@ export const profile = {
         title: "Founder & Principal Engineer",
         bio: "Eight years shipping enterprise platforms, branchless-banking systems and fintech infrastructure across Cloudtek, Elixir, AKSA-SDS and Deltashoppe — for clients including EasyPaisa, JazzCash, FoodPanda, ZTBL and MySimpleRx.",
         linkedin: "https://linkedin.com/in/behlole",
-        github: "https://github.com/behlole",
+        github: "https://github.com/behloleaqil1",
     },
     resumeUrl: null,
 };
@@ -387,7 +387,7 @@ const projects = [
 const testimonials = [
     {
         testimonial:
-            "Dewelope's team shipped fast and shipped well. Delivered on time with a solid grip on the technical depth of the stack. Will be looking forward to hiring them again.",
+            "The DeWelope Softwares team shipped fast and shipped well. Delivered on time with a solid grip on the technical depth of the stack. Will be looking forward to hiring them again.",
         name: "Areeb Ali",
         designation: "Client",
         company: "Fiverr",
