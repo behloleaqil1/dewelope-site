@@ -7,6 +7,7 @@ import {fadeIn, textVariant} from "../utils/motion.js";
 import SectionWrapper from "../hoc/index.js";
 import {cn} from "../utils/cn.js";
 import ServiceCanvas from "./canvas/ServiceCanvas.jsx";
+import {isPrerender} from "../utils/prerender.js";
 
 const TILT_MAX = 8; // degrees
 
@@ -81,7 +82,7 @@ const ServiceCard = ({service, index}) => {
             </div>
             {/* 3D motif — blends into the card; no framing border */}
             <div className="relative z-10 -mt-2 mb-2">
-                <ServiceCanvas shape={service.shape} tint={service.tint}/>
+                {!isPrerender() && <ServiceCanvas shape={service.shape} tint={service.tint}/>}
             </div>
             {/* body */}
             <div className="relative z-10 px-6 sm:px-7 pb-7">

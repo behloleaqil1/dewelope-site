@@ -7,6 +7,7 @@ import {fadeIn, textVariant} from "../utils/motion.js";
 import SectionWrapper from "../hoc/index.js";
 import ProjectDetail from "./ProjectDetail.jsx";
 import ProjectCanvas from "./canvas/ProjectCanvas.jsx";
+import {isPrerender} from "../utils/prerender.js";
 
 const TILT_MAX = 8;
 
@@ -63,7 +64,7 @@ const ProjectCard = ({project, index, onOpen}) => {
             aria-label={`${name} — open case study`}
         >
             {/* Live 3D cover — unique motif per project */}
-            <ProjectCanvas motif={motif3D} tint={tint || "#7c5cff"}/>
+            {!isPrerender() && <ProjectCanvas motif={motif3D} tint={tint || "#7c5cff"}/>}
 
             <motion.div
                 aria-hidden

@@ -3,6 +3,7 @@ import {BrowserRouter} from "react-router-dom";
 import {About, Cursor, Hero, Navbar, SmoothScroll} from "./components/index.js";
 import LazyVisible from "./components/LazyVisible.jsx";
 import ScrollProgress from "./components/ScrollProgress.jsx";
+import {isPrerender} from "./utils/prerender.js";
 import Clients from "./components/Clients.jsx";
 import SideNav from "./components/SideNav.jsx";
 import SeoSchemas from "./components/SeoSchemas.jsx";
@@ -67,9 +68,11 @@ function App() {
                             <Contact/>
                         </Suspense>
                     </LazyVisible>
-                    <Suspense fallback={null}>
-                        <StarsCanvas/>
-                    </Suspense>
+                    {!isPrerender() && (
+                        <Suspense fallback={null}>
+                            <StarsCanvas/>
+                        </Suspense>
+                    )}
                 </div>
 
                 <Suspense fallback={null}>

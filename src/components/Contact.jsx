@@ -15,6 +15,7 @@ import {
 
 import {EarthCanvas} from "./canvas";
 import {slideIn} from "../utils/motion";
+import {isPrerender} from "../utils/prerender.js";
 import SectionWrapper from "../hoc/index.js";
 import {styles} from "../style.js";
 import {profile} from "../constants/index.js";
@@ -332,7 +333,7 @@ const Contact = () => {
                 className="xl:col-span-5 flex flex-col gap-5"
             >
                 <div className="relative rounded-3xl glass overflow-hidden h-[300px] xl:h-[380px]">
-                    <EarthCanvas/>
+                    {!isPrerender() && <EarthCanvas/>}
                     <div className="absolute bottom-4 left-4 text-xs font-mono uppercase tracking-widest text-muted">
                         Anywhere on the planet · Remote-friendly
                     </div>

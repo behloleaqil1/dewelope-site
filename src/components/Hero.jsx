@@ -3,6 +3,7 @@ import {motion, useReducedMotion} from "framer-motion";
 import {FiArrowDown, FiArrowUpRight, FiMail} from "react-icons/fi";
 import HeroScene from "./canvas/HeroScene.jsx";
 import {heroStats, profile} from "../constants/index.js";
+import {isPrerender} from "../utils/prerender.js";
 
 const word = (reduce) => ({
     hidden: {y: reduce ? 0 : "120%", opacity: reduce ? 1 : 0},
@@ -41,7 +42,7 @@ const Hero = () => {
             className="relative w-full min-h-[100svh] overflow-hidden flex flex-col"
         >
             {/* 3D ambient backdrop */}
-            <HeroScene/>
+            {!isPrerender() && <HeroScene/>}
 
             {/* Subtle grid to anchor the eye */}
             <div className="pointer-events-none absolute inset-0 bg-grid-pattern bg-grid opacity-20 [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_80%)]"/>

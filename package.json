@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "node -e \"const{spawn}=require('child_process');const p=spawn('vite',['build']);let done=false;const fwd=s=>d=>{process[s].write(d);if(d.toString().includes('built in')){done=true;setTimeout(()=>process.exit(0),500);}};p.stdout.on('data',fwd('stdout'));p.stderr.on('data',fwd('stderr'));p.on('exit',c=>{if(!done)process.exit(c||0);});\"",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postbuild": "node scripts/prerender.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
@@ -40,6 +41,7 @@
     "eslint-plugin-react-refresh": "^0.3.4",
     "postcss": "^8.4.23",
     "tailwindcss": "^3.3.2",
-    "vite": "^4.3.2"
+    "vite": "^4.3.2",
+    "puppeteer": "^23.0.0"
   }
 }
