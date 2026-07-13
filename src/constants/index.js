@@ -388,6 +388,38 @@ const projects = [
 const testimonials = [
     {
         testimonial:
+            "Muhammad is truly one of the best freelancers I've hired on Upwork. He's a hard-working individual who goes above and beyond to satisfy the client's requirements — a very skilled backend developer. I'd definitely recommend him for any major IT project.",
+        name: "Spring Boot Microservices",
+        designation: "Verified Upwork review",
+        company: "5.0★ · 192 hrs",
+        image: "https://ui-avatars.com/api/?name=Spring+Boot&background=14a800&color=fff&bold=true&size=128",
+    },
+    {
+        testimonial:
+            "Muhammad joined a project that had been running for over a year. He synced up with our development team, put in extra hours to understand the project, and worked hard and carefully. I highly recommend Muhammad.",
+        name: "Flutter Mobile App",
+        designation: "Verified Upwork review",
+        company: "5.0★ · repeat delivery",
+        image: "https://ui-avatars.com/api/?name=Flutter&background=14a800&color=fff&bold=true&size=128",
+    },
+    {
+        testimonial:
+            "He did my project professionally and with a very short turnaround time. Highly recommend!",
+        name: "Angular + TypeScript App",
+        designation: "Verified Upwork review",
+        company: "5.0★ · Upwork",
+        image: "https://ui-avatars.com/api/?name=Angular&background=14a800&color=fff&bold=true&size=128",
+    },
+    {
+        testimonial:
+            "He helped me a lot, trying different approaches until it worked. I recommend him!",
+        name: "Java Build & Tooling",
+        designation: "Verified Upwork review",
+        company: "5.0★ · Upwork",
+        image: "https://ui-avatars.com/api/?name=Java&background=14a800&color=fff&bold=true&size=128",
+    },
+    {
+        testimonial:
             "The DeWelope Softwares team shipped fast and shipped well. Delivered on time with a solid grip on the technical depth of the stack. Will be looking forward to hiring them again.",
         name: "Areeb Ali",
         designation: "Client",
