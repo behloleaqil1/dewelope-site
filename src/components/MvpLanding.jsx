@@ -110,9 +110,9 @@ const MvpLanding = () => {
 
                     <motion.p {...fade(0.12)}
                         className="mt-7 text-secondary text-[17px] sm:text-[19px] leading-relaxed max-w-2xl mx-auto">
-                        We turn ideas into production-ready products for funded startups — engineered
-                        by a team that shipped fintech at banking scale for millions of users. No
-                        throwaway prototypes. No rebuilds in six months.
+                        We design and build complete products — web, mobile, backend and cloud —
+                        for funded startups, engineered by a team that shipped fintech at banking
+                        scale for millions of users. No throwaway prototypes. No rebuilds in six months.
                     </motion.p>
 
                     <motion.div {...fade(0.19)} className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -151,6 +151,20 @@ const MvpLanding = () => {
                             </motion.div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* Capabilities — one team, whole stack */}
+            <section className="relative pt-10 pb-2">
+                <div className="max-w-6xl mx-auto px-6 sm:px-10">
+                    <motion.div {...fade()} className="text-center text-[11px] font-mono uppercase tracking-[0.3em] text-muted mb-5">
+                        One team · the whole stack
+                    </motion.div>
+                    <motion.div {...fade(0.05)} className="flex flex-wrap items-center justify-center gap-2.5">
+                        {["Web apps", "Mobile — iOS & Android", "APIs & backends", "Cloud & DevOps", "AI features"].map((c) => (
+                            <span key={c} className="glass rounded-full px-4 py-2 text-sm text-white/85">{c}</span>
+                        ))}
+                    </motion.div>
                 </div>
             </section>
 
