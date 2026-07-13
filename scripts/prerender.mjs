@@ -7,14 +7,14 @@
 // Non-fatal by design: any failure logs a warning and exits 0, leaving the
 // normal SPA index.html in place so a prerender hiccup can never block a deploy.
 import http from "node:http";
-import {readFile, writeFile} from "node:fs/promises";
+import {readFile, writeFile, mkdir} from "node:fs/promises";
 import {existsSync, statSync} from "node:fs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, "..", "dist");
-const ROUTES = ["/"];
+const ROUTES = ["/", "/mvp"];
 const PORT = 5055;
 
 const MIME = {
@@ -109,6 +109,7 @@ async function main() {
             if (textLen < 800) {
                 console.warn(`[prerender] ${route}: snapshot too thin (${textLen} chars) — keeping original.`);
             } else {
+                await mkdir(path.dirname(outPath), {recursive: true});
                 await writeFile(outPath, html, "utf8");
                 console.log(`[prerender] wrote ${outPath} — ${html.length} bytes, ~${textLen} chars of text`);
             }

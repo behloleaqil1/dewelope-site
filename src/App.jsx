@@ -1,5 +1,5 @@
 import React, {lazy, Suspense} from "react";
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {About, Cursor, Hero, Navbar, SmoothScroll} from "./components/index.js";
 import LazyVisible from "./components/LazyVisible.jsx";
 import ScrollProgress from "./components/ScrollProgress.jsx";
@@ -8,6 +8,7 @@ import Clients from "./components/Clients.jsx";
 import SideNav from "./components/SideNav.jsx";
 import SeoSchemas from "./components/SeoSchemas.jsx";
 import HomeMeta from "./components/HomeMeta.jsx";
+import MvpLanding from "./components/MvpLanding.jsx";
 
 const Works = lazy(() => import("./components/Works.jsx"));
 const Process = lazy(() => import("./components/Process.jsx"));
@@ -27,14 +28,11 @@ const SectionFallback = ({label = "Loading"}) => (
     </div>
 );
 
-function App() {
+function Home() {
     return (
-        <BrowserRouter>
+        <>
             <SeoSchemas/>
             <HomeMeta/>
-            <SmoothScroll/>
-            <Cursor/>
-            <ScrollProgress/>
             <SideNav/>
             <div className="relative z-0 bg-primary noise-overlay overflow-x-hidden">
                 <Navbar/>
@@ -79,6 +77,20 @@ function App() {
                     <Footer/>
                 </Suspense>
             </div>
+        </>
+    );
+}
+
+function App() {
+    return (
+        <BrowserRouter>
+            <SmoothScroll/>
+            <Cursor/>
+            <ScrollProgress/>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/mvp" element={<MvpLanding/>}/>
+            </Routes>
         </BrowserRouter>
     );
 }
