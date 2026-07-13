@@ -7,8 +7,8 @@ import {
 } from "react-icons/fi";
 import {profile, processSteps} from "../constants/index.js";
 
-// Swap for your Cal.com / Calendly link when ready — falls back to email.
-const BOOKING_URL = `mailto:${profile.email}?subject=MVP%20build%20—%20let's%20talk`;
+// Booking link (Cal.com). Email remains as a fallback CTA in the final section.
+const BOOKING_URL = "https://cal.com/m-behlole-aqil-f5th4a/30min";
 
 const fade = (d = 0) => ({
     initial: {opacity: 0, y: 26},
@@ -80,7 +80,7 @@ const MvpLanding = () => {
                             <span className="text-muted font-normal ml-1.5 text-[15px]">Softwares</span>
                         </span>
                     </Link>
-                    <a href={BOOKING_URL}
+                    <a href={BOOKING_URL} target="_blank" rel="noreferrer"
                        className="btn-magnetic inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-primary font-semibold text-sm">
                         Book a call <FiArrowUpRight />
                     </a>
@@ -116,7 +116,7 @@ const MvpLanding = () => {
                     </motion.p>
 
                     <motion.div {...fade(0.19)} className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
-                        <a href={BOOKING_URL}
+                        <a href={BOOKING_URL} target="_blank" rel="noreferrer"
                            className="btn-magnetic inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white text-primary font-semibold text-base w-full sm:w-auto">
                             Book a free scoping call <FiArrowUpRight />
                         </a>
@@ -245,7 +245,7 @@ const MvpLanding = () => {
                                         </li>
                                     ))}
                                 </ul>
-                                <a href={BOOKING_URL}
+                                <a href={BOOKING_URL} target="_blank" rel="noreferrer"
                                    className={`btn-magnetic mt-7 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm ${p.featured ? "bg-white text-primary" : "glass text-white hover:bg-white/10 transition-colors"}`}>
                                     Book a call <FiArrowUpRight />
                                 </a>
@@ -312,7 +312,7 @@ const MvpLanding = () => {
                                 send a short plan for how we’d build it.
                             </p>
                             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-                                <a href={BOOKING_URL}
+                                <a href={BOOKING_URL} target="_blank" rel="noreferrer"
                                    className="btn-magnetic inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white text-primary font-semibold text-base w-full sm:w-auto">
                                     Book a free scoping call <FiArrowUpRight />
                                 </a>
