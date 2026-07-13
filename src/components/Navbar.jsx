@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 import {motion} from "framer-motion";
 import {FiArrowUpRight} from "react-icons/fi";
 import {profile} from "../constants/index.js";
@@ -47,6 +48,12 @@ const Navbar = () => {
                 </a>
 
                 <div className="flex items-center gap-3 sm:gap-5">
+                    <Link
+                        to="/mvp"
+                        className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-white/80 hover:text-white transition-colors"
+                    >
+                        Build an MVP
+                    </Link>
                     <a
                         href="https://tools.dewelope.com"
                         className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-white/80 hover:text-white transition-colors"

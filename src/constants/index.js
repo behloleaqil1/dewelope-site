@@ -44,7 +44,8 @@ export const profile = {
     socials: {
         github: "https://github.com/behloleaqil1",
         linkedin: "https://linkedin.com/in/behlole",
-        twitter: "https://twitter.com/",
+        upwork: "", // paste your Upwork profile URL here to show the icon
+        twitter: "",
     },
     founder: {
         name: "Engr M Behlole Aqil",

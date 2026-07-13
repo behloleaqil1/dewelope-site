@@ -1,5 +1,6 @@
 import React from "react";
 import {FiArrowUp, FiGithub, FiLinkedin, FiMail, FiTwitter} from "react-icons/fi";
+import {SiUpwork} from "react-icons/si";
 import {profile, navLinks} from "../constants/index.js";
 
 const Footer = () => {
@@ -60,22 +61,21 @@ const Footer = () => {
                 <div className="md:col-span-4">
                     <div className="text-xs font-mono uppercase tracking-wider text-muted mb-4">Elsewhere</div>
                     <div className="flex gap-3">
-                        <a href={`mailto:${profile.email}`}
-                           className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-accent-2 transition-colors">
-                            <FiMail/>
-                        </a>
-                        <a href={profile.socials.github} target="_blank" rel="noreferrer"
-                           className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-accent-2 transition-colors">
-                            <FiGithub/>
-                        </a>
-                        <a href={profile.socials.linkedin} target="_blank" rel="noreferrer"
-                           className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-accent-2 transition-colors">
-                            <FiLinkedin/>
-                        </a>
-                        <a href={profile.socials.twitter} target="_blank" rel="noreferrer"
-                           className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-accent-2 transition-colors">
-                            <FiTwitter/>
-                        </a>
+                        {[
+                            {Icon: FiMail, href: `mailto:${profile.email}`, label: "Email"},
+                            {Icon: FiGithub, href: profile.socials.github, label: "GitHub"},
+                            {Icon: FiLinkedin, href: profile.socials.linkedin, label: "LinkedIn"},
+                            {Icon: SiUpwork, href: profile.socials.upwork, label: "Upwork"},
+                            {Icon: FiTwitter, href: profile.socials.twitter, label: "Twitter"},
+                        ]
+                            .filter((s) => s.href && s.href !== "https://twitter.com/")
+                            .map(({Icon, href, label}) => (
+                                <a key={label} href={href} aria-label={label}
+                                   target={href.startsWith("mailto:") ? undefined : "_blank"} rel="noreferrer"
+                                   className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-accent-2 transition-colors">
+                                    <Icon/>
+                                </a>
+                            ))}
                     </div>
 
                     <a href="#hero"
