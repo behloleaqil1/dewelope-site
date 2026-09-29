@@ -6,11 +6,12 @@ import {
     FiArrowUpRight,
     FiCheckCircle,
     FiClock,
+    FiFacebook,
     FiGithub,
+    FiInstagram,
     FiLinkedin,
     FiMail,
     FiMapPin,
-    FiTwitter,
 } from "react-icons/fi";
 
 import {EarthCanvas} from "./canvas";
@@ -357,20 +358,21 @@ const Contact = () => {
                         <div className="text-white text-sm font-medium mt-1">Within 24h</div>
                     </div>
                     <div className="rounded-2xl glass p-5 flex flex-col">
-                        <div className="text-xs font-mono uppercase tracking-wider text-muted mb-3">Find me</div>
-                        <div className="flex gap-2 mt-auto">
-                            <a href={profile.socials.github} target="_blank" rel="noreferrer" aria-label="GitHub"
-                               className="w-9 h-9 rounded-full bg-white/5 hover:bg-accent/20 flex items-center justify-center text-white">
-                                <FiGithub/>
-                            </a>
-                            <a href={profile.socials.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"
-                               className="w-9 h-9 rounded-full bg-white/5 hover:bg-accent/20 flex items-center justify-center text-white">
-                                <FiLinkedin/>
-                            </a>
-                            <a href={profile.socials.twitter} target="_blank" rel="noreferrer" aria-label="Twitter"
-                               className="w-9 h-9 rounded-full bg-white/5 hover:bg-accent/20 flex items-center justify-center text-white">
-                                <FiTwitter/>
-                            </a>
+                        <div className="text-xs font-mono uppercase tracking-wider text-muted mb-3">Find us</div>
+                        <div className="flex flex-wrap gap-2 mt-auto">
+                            {[
+                                {Icon: FiLinkedin, href: profile.socials.linkedin, label: "LinkedIn"},
+                                {Icon: FiInstagram, href: profile.socials.instagram, label: "Instagram"},
+                                {Icon: FiFacebook, href: profile.socials.facebook, label: "Facebook"},
+                                {Icon: FiGithub, href: profile.socials.github, label: "GitHub"},
+                            ]
+                                .filter((s) => s.href)
+                                .map(({Icon, href, label}) => (
+                                    <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}
+                                       className="w-9 h-9 rounded-full bg-white/5 hover:bg-brand/20 hover:text-accent-2 flex items-center justify-center text-white transition-colors">
+                                        <Icon/>
+                                    </a>
+                                ))}
                         </div>
                     </div>
                 </div>
