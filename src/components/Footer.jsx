@@ -1,5 +1,5 @@
 import React from "react";
-import {FiArrowUp, FiGithub, FiLinkedin, FiMail, FiTwitter} from "react-icons/fi";
+import {FiArrowUp, FiFacebook, FiGithub, FiInstagram, FiLinkedin, FiMail, FiTwitter} from "react-icons/fi";
 import {SiUpwork} from "react-icons/si";
 import {profile, navLinks} from "../constants/index.js";
 
@@ -63,8 +63,10 @@ const Footer = () => {
                     <div className="flex gap-3">
                         {[
                             {Icon: FiMail, href: `mailto:${profile.email}`, label: "Email"},
-                            {Icon: FiGithub, href: profile.socials.github, label: "GitHub"},
                             {Icon: FiLinkedin, href: profile.socials.linkedin, label: "LinkedIn"},
+                            {Icon: FiInstagram, href: profile.socials.instagram, label: "Instagram"},
+                            {Icon: FiFacebook, href: profile.socials.facebook, label: "Facebook"},
+                            {Icon: FiGithub, href: profile.socials.github, label: "GitHub"},
                             {Icon: SiUpwork, href: profile.socials.upwork, label: "Upwork"},
                             {Icon: FiTwitter, href: profile.socials.twitter, label: "Twitter"},
                         ]

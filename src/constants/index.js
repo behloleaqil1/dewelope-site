@@ -43,7 +43,9 @@ export const profile = {
     website: "https://dewelope.com",
     socials: {
         github: "https://github.com/behloleaqil1",
-        linkedin: "https://linkedin.com/in/behlole",
+        linkedin: "https://www.linkedin.com/company/dewelope-softwares/",
+        facebook: "https://www.facebook.com/share/1EmfVYJnZ2/",
+        instagram: "https://www.instagram.com/dewe.lopesoftwares",
         upwork: "https://upwork.com/freelancers/behlole",
         twitter: "",
     },
