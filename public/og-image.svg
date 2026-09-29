@@ -2,28 +2,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0c0e1a"/>
-      <stop offset="1" stop-color="#06070d"/>
+      <stop offset="0" stop-color="#1a1a1a"/>
+      <stop offset="1" stop-color="#141414"/>
     </linearGradient>
     <radialGradient id="glowL" cx="220" cy="160" r="420" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7c5cff" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#7c5cff" stop-opacity="0"/>
+      <stop offset="0" stop-color="#C0292F" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#C0292F" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="glowR" cx="1020" cy="520" r="460" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+      <stop offset="0" stop-color="#a3232a" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#a3232a" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="mark" x1="0" y1="0" x2="140" y2="140" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7c5cff"/>
-      <stop offset="0.5" stop-color="#a78bfa"/>
-      <stop offset="1" stop-color="#22d3ee"/>
+      <stop offset="0" stop-color="#C0292F"/>
+      <stop offset="0.5" stop-color="#d4494f"/>
+      <stop offset="1" stop-color="#a3232a"/>
     </linearGradient>
     <linearGradient id="accent" x1="0" y1="0" x2="400" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7c5cff"/>
-      <stop offset="1" stop-color="#22d3ee"/>
+      <stop offset="0" stop-color="#C0292F"/>
+      <stop offset="1" stop-color="#a3232a"/>
     </linearGradient>
     <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(124,92,255,0.08)" stroke-width="1"/>
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(192,41,47,0.08)" stroke-width="1"/>
     </pattern>
   </defs>
 
@@ -43,7 +43,7 @@
     <text font-family="'Space Grotesk','Inter',system-ui,sans-serif" font-weight="700" font-size="56" letter-spacing="-2">
       <tspan fill="#ffffff">de</tspan><tspan fill="url(#accent)">we</tspan><tspan fill="#ffffff">lope</tspan>
     </text>
-    <text y="44" font-family="'JetBrains Mono',ui-monospace,monospace" font-size="20" letter-spacing="8" fill="#22d3ee"
+    <text y="44" font-family="'JetBrains Mono',ui-monospace,monospace" font-size="20" letter-spacing="8" fill="#a3232a"
           style="text-transform:uppercase">modern software house</text>
   </g>
 
@@ -54,16 +54,16 @@
         font-family="'Space Grotesk','Inter',system-ui,sans-serif"
         font-weight="700" font-size="88" letter-spacing="-2" fill="url(#accent)">at banking scale.</text>
 
-  <g font-family="'JetBrains Mono',ui-monospace,monospace" font-size="20" fill="#9aa3c7">
+  <g font-family="'JetBrains Mono',ui-monospace,monospace" font-size="20" fill="#8a8a8a">
     <text x="90" y="500">FULL-STACK  ·  MICROSERVICES  ·  FINTECH  ·  AI INTEGRATION  ·  CLOUD</text>
     <text x="90" y="540">TRUSTED BY TEAMS BEHIND EASYPAISA  ·  JAZZCASH  ·  FOODPANDA  ·  ZTBL</text>
   </g>
 
   <g transform="translate(90 578)">
-    <circle cx="6" cy="6" r="6" fill="#a3e635"/>
+    <circle cx="6" cy="6" r="6" fill="#C0292F"/>
     <text x="22" y="6" dominant-baseline="central"
           font-family="'JetBrains Mono',ui-monospace,monospace"
-          font-size="18" letter-spacing="4" fill="#e8eaf2"
+          font-size="18" letter-spacing="4" fill="#ededed"
           style="text-transform:uppercase">dewelope.com  ·  available for new engagements</text>
   </g>
 </svg>

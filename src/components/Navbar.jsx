@@ -34,8 +34,8 @@ const Navbar = () => {
                     aria-label="DeWelope Softwares — home"
                 >
                     <div className="relative w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-glow">
-                        <img src="/logo.svg" alt="" width="40" height="40" className="w-10 h-10"/>
-                        <span className="absolute inset-0 rounded-xl bg-gradient-to-br from-accent to-accent-2 blur-lg opacity-40 group-hover:opacity-70 transition-opacity -z-10"/>
+                        <img src="/dewelope-mark-white.svg" alt="" width="40" height="40" className="w-10 h-10 p-1"/>
+                        <span className="absolute inset-0 rounded-xl bg-gradient-to-br from-brand to-brand-600 blur-lg opacity-40 group-hover:opacity-70 transition-opacity -z-10"/>
                     </div>
                     <div className="hidden sm:flex flex-col leading-tight">
                         <span className="font-display font-semibold text-[20px] tracking-tight leading-none">

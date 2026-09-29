@@ -66,7 +66,7 @@ const ProjectDetail = ({project, onClose, layoutId}) => {
                                             background:
                                                 `radial-gradient(circle at 30% 20%, ${coverArt.from}55, transparent 50%),
                                                  radial-gradient(circle at 80% 80%, ${coverArt.via}55, transparent 55%),
-                                                 linear-gradient(180deg, ${coverArt.to} 0%, #06070d 100%)`,
+                                                 linear-gradient(180deg, ${coverArt.to} 0%, #141414 100%)`,
                                         }}
                                     >
                                         <div className="absolute inset-0 flex items-center justify-center">

@@ -13,13 +13,13 @@ const Studio = () => (
         {/* Key light above */}
         <Lightformer form="rect" intensity={3.5} color="#ffffff" rotation-x={Math.PI / 2} position={[0, 6, -2]} scale={[8, 8, 1]}/>
         {/* Cyan rim left */}
-        <Lightformer form="rect" intensity={2.5} color="#22d3ee" rotation-y={Math.PI / 2} position={[-5, 1, -2]} scale={[20, 2, 1]}/>
+        <Lightformer form="rect" intensity={2.5} color="#d4494f" rotation-y={Math.PI / 2} position={[-5, 1, -2]} scale={[20, 2, 1]}/>
         {/* Violet rim right */}
-        <Lightformer form="rect" intensity={2.2} color="#7c5cff" rotation-y={-Math.PI / 2} position={[5, 1, -2]} scale={[20, 2, 1]}/>
+        <Lightformer form="rect" intensity={2.2} color="#C0292F" rotation-y={-Math.PI / 2} position={[5, 1, -2]} scale={[20, 2, 1]}/>
         {/* Warm fill front */}
-        <Lightformer form="circle" intensity={1.6} color="#fb7185" position={[0, 1, 5]} scale={6}/>
+        <Lightformer form="circle" intensity={1.6} color="#a3232a" position={[0, 1, 5]} scale={6}/>
         {/* Ambient base */}
-        <Lightformer form="rect" intensity={0.6} color="#e8eaf2" position={[0, -4, 0]} scale={[20, 20, 1]} rotation-x={-Math.PI / 2}/>
+        <Lightformer form="rect" intensity={0.6} color="#ededed" position={[0, -4, 0]} scale={[20, 20, 1]} rotation-x={-Math.PI / 2}/>
     </Environment>
 );
 
@@ -85,7 +85,7 @@ const CoinsMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                             <mesh rotation={[Math.PI / 2, 0, 0]}>
                                 <cylinderGeometry args={[0.85 - i * 0.02, 0.85 - i * 0.02, 0.1, 64, 1, false]}/>
                                 <meshPhysicalMaterial
-                                    color={isGold ? "#f0c160" : "#cfe8ff"}
+                                    color={isGold ? "#d4494f" : "#cfe8ff"}
                                     metalness={1}
                                     roughness={0.18}
                                     clearcoat={1}
@@ -106,7 +106,7 @@ const CoinsMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                     );
                 })}
             </group>
-            <ContactShadows position={[0, -1.15, 0]} opacity={0.55} blur={2.4} far={4} scale={5} color="#06070d"/>
+            <ContactShadows position={[0, -1.15, 0]} opacity={0.55} blur={2.4} far={4} scale={5} color="#141414"/>
         </>
     );
 };
@@ -142,7 +142,7 @@ const PillMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                         <mesh position={[0, 0.55, 0]}>
                             <sphereGeometry args={[0.68, 48, 48, 0, Math.PI * 2, 0, Math.PI / 2]}/>
                             <meshPhysicalMaterial
-                                color="#fb7185"
+                                color="#a3232a"
                                 metalness={0.15}
                                 roughness={0.28}
                                 clearcoat={1}
@@ -155,7 +155,7 @@ const PillMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                         <mesh position={[0, 0.275, 0]}>
                             <cylinderGeometry args={[0.68, 0.68, 0.55, 48, 1, true]}/>
                             <meshPhysicalMaterial
-                                color="#fb7185"
+                                color="#a3232a"
                                 metalness={0.15}
                                 roughness={0.28}
                                 clearcoat={1}
@@ -198,7 +198,7 @@ const PillMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                     </group>
                 </group>
             </Float>
-            <ContactShadows position={[0, -1.2, 0]} opacity={0.5} blur={2.4} far={4} scale={5} color="#06070d"/>
+            <ContactShadows position={[0, -1.2, 0]} opacity={0.5} blur={2.4} far={4} scale={5} color="#141414"/>
         </>
     );
 };
@@ -245,11 +245,11 @@ const ChartMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                 {/* Plate */}
                 <mesh position={[0, -0.82, 0]} receiveShadow>
                     <boxGeometry args={[2.6, 0.04, 1.2]}/>
-                    <meshPhysicalMaterial color="#1a1d33" metalness={0.5} roughness={0.35} clearcoat={1} clearcoatRoughness={0.3}/>
+                    <meshPhysicalMaterial color="#212121" metalness={0.5} roughness={0.35} clearcoat={1} clearcoatRoughness={0.3}/>
                 </mesh>
                 {Array.from({length: COUNT}).map((_, i) => {
                     const x = (i - (COUNT - 1) / 2) * 0.38;
-                    const palette = ["#7c5cff", "#22d3ee", "#a3e635", "#fb7185", "#7c5cff", "#22d3ee"];
+                    const palette = ["#C0292F", "#d4494f", "#e8e8e8", "#a3232a", "#C0292F", "#d4494f"];
                     const c = palette[i];
                     return (
                         <mesh key={i} ref={(el) => (bars.current[i] = el)} position={[x, 0, 0]}>
@@ -271,7 +271,7 @@ const ChartMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                     );
                 })}
             </group>
-            <ContactShadows position={[0, -0.82, 0]} opacity={0.6} blur={2} far={3} scale={5} color="#06070d"/>
+            <ContactShadows position={[0, -0.82, 0]} opacity={0.6} blur={2} far={3} scale={5} color="#141414"/>
         </>
     );
 };
@@ -313,7 +313,7 @@ const KnotMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                     <mesh ref={knot}>
                         <torusKnotGeometry args={[0.72, 0.22, 240, 32]}/>
                         <meshPhysicalMaterial
-                            color="#e8eaf2"
+                            color="#ededed"
                             metalness={1}
                             roughness={0.1}
                             clearcoat={1}
@@ -324,8 +324,8 @@ const KnotMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                     <mesh ref={sat}>
                         <icosahedronGeometry args={[0.14, 1]}/>
                         <meshPhysicalMaterial
-                            color="#a3e635"
-                            emissive="#a3e635"
+                            color="#e8e8e8"
+                            emissive="#e8e8e8"
                             emissiveIntensity={0.6}
                             metalness={0.6}
                             roughness={0.15}
@@ -336,7 +336,7 @@ const KnotMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                     </mesh>
                 </group>
             </Float>
-            <ContactShadows position={[0, -1.1, 0]} opacity={0.5} blur={2.2} far={4} scale={5} color="#06070d"/>
+            <ContactShadows position={[0, -1.1, 0]} opacity={0.5} blur={2.2} far={4} scale={5} color="#141414"/>
         </>
     );
 };
@@ -373,7 +373,7 @@ const TicketMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                         <mesh>
                             <boxGeometry args={[2.2, 1.25, 0.08]}/>
                             <meshPhysicalMaterial
-                                color="#fb7185"
+                                color="#a3232a"
                                 metalness={0.25}
                                 roughness={0.3}
                                 clearcoat={1}
@@ -385,7 +385,7 @@ const TicketMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                         <mesh position={[-0.76, 0, 0.045]}>
                             <planeGeometry args={[0.56, 1.25]}/>
                             <meshPhysicalMaterial
-                                color="#f97316"
+                                color="#C0292F"
                                 metalness={0.4}
                                 roughness={0.25}
                                 clearcoat={1}
@@ -401,7 +401,7 @@ const TicketMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                             [-0.45, -0.25, -0.05, 0.15, 0.35].map((y, k) => (
                                 <mesh key={`p-${k}`} position={[x, y, 0.046]}>
                                     <circleGeometry args={[0.035, 16]}/>
-                                    <meshBasicMaterial color="#06070d"/>
+                                    <meshBasicMaterial color="#141414"/>
                                 </mesh>
                             ))
                         )}
@@ -426,7 +426,7 @@ const TicketMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                     </group>
                 </group>
             </Float>
-            <ContactShadows position={[0, -0.95, 0]} opacity={0.5} blur={2.4} far={4} scale={5} color="#06070d"/>
+            <ContactShadows position={[0, -0.95, 0]} opacity={0.5} blur={2.4} far={4} scale={5} color="#141414"/>
         </>
     );
 };
@@ -473,13 +473,13 @@ const PyramidMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                 {/* Orbit ring */}
                 <mesh ref={ring} rotation={[Math.PI / 2.3, 0, 0]}>
                     <torusGeometry args={[1.4, 0.02, 20, 120]}/>
-                    <meshStandardMaterial color="#22d3ee" emissive="#22d3ee" emissiveIntensity={1.6} toneMapped={false}/>
+                    <meshStandardMaterial color="#d4494f" emissive="#d4494f" emissiveIntensity={1.6} toneMapped={false}/>
                 </mesh>
                 {/* Tetrahedron */}
                 <mesh ref={tet}>
                     <tetrahedronGeometry args={[0.95, 0]}/>
                     <meshPhysicalMaterial
-                        color="#8b6bff"
+                        color="#C0292F"
                         metalness={1}
                         roughness={0.2}
                         clearcoat={1}
@@ -493,8 +493,8 @@ const PyramidMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                     <mesh key={i} ref={(el) => (cubes.current[i] = el)}>
                         <boxGeometry args={[0.2, 0.2, 0.2]}/>
                         <meshPhysicalMaterial
-                            color="#22d3ee"
-                            emissive="#22d3ee"
+                            color="#d4494f"
+                            emissive="#d4494f"
                             emissiveIntensity={0.7}
                             metalness={0.5}
                             roughness={0.18}
@@ -504,7 +504,7 @@ const PyramidMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                     </mesh>
                 ))}
             </group>
-            <ContactShadows position={[0, -1.1, 0]} opacity={0.5} blur={2.2} far={4} scale={5} color="#06070d"/>
+            <ContactShadows position={[0, -1.1, 0]} opacity={0.5} blur={2.2} far={4} scale={5} color="#141414"/>
         </>
     );
 };
@@ -558,12 +558,12 @@ const OrbitMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                             chromaticAberration={0.02}
                             distortion={0.15}
                             temporalDistortion={0.1}
-                            color="#a78bfa"
+                            color="#C0292F"
                             envMapIntensity={1.5}
                         />
                     </mesh>
                     {[0, 1, 2].map((i) => {
-                        const palette = ["#22d3ee", "#a3e635", "#fb7185"];
+                        const palette = ["#d4494f", "#e8e8e8", "#a3232a"];
                         const color = palette[i];
                         return (
                             <mesh key={i} ref={(el) => (sats.current[i] = el)}>
@@ -583,7 +583,7 @@ const OrbitMotif = ({reduceMotion, mouseRef, hoverRef, burstTrigger}) => {
                     })}
                 </group>
             </Float>
-            <ContactShadows position={[0, -1.1, 0]} opacity={0.55} blur={2.4} far={4} scale={5} color="#06070d"/>
+            <ContactShadows position={[0, -1.1, 0]} opacity={0.55} blur={2.4} far={4} scale={5} color="#141414"/>
         </>
     );
 };
@@ -602,7 +602,7 @@ const MOTIFS = {
 // Host canvas — IO-gated, mouse + click-interact
 // ----------------------------------------------------------------
 
-const ProjectCanvas = ({motif = "orbit", tint = "#7c5cff"}) => {
+const ProjectCanvas = ({motif = "orbit", tint = "#C0292F"}) => {
     const wrapRef = useRef(null);
     const mouseRef = useRef({x: 0, y: 0});
     const hoverRef = useRef(false);
@@ -658,7 +658,7 @@ const ProjectCanvas = ({motif = "orbit", tint = "#7c5cff"}) => {
                     background:
                         `radial-gradient(circle at 30% 20%, ${tint}33, transparent 55%),
                          radial-gradient(circle at 75% 85%, ${tint}22, transparent 60%),
-                         linear-gradient(180deg, #0b0d1a 0%, #06070d 100%)`,
+                         linear-gradient(180deg, #0b0d1a 0%, #141414 100%)`,
                 }}
             />
             {inView && (

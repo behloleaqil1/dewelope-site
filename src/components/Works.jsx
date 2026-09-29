@@ -64,7 +64,7 @@ const ProjectCard = ({project, index, onOpen}) => {
             aria-label={`${name} — open case study`}
         >
             {/* Live 3D cover — unique motif per project */}
-            {!isPrerender() && <ProjectCanvas motif={motif3D} tint={tint || "#7c5cff"}/>}
+            {!isPrerender() && <ProjectCanvas motif={motif3D} tint={tint || "#C0292F"}/>}
 
             <motion.div
                 aria-hidden

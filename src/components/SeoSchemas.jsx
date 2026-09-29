@@ -16,7 +16,9 @@ const professionalServiceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "DeWelope Softwares",
+  "legalName": "DeWelope Softwares (SMC-Private) Limited",
   "url": "https://dewelope.com",
+  "logo": "https://dewelope.com/dewelope-mark-512.png",
   "description": "A focused software house building enterprise platforms, financial systems and branchless-banking infrastructure.",
   "address": {
     "@type": "PostalAddress",

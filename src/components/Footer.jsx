@@ -9,8 +9,8 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-6 sm:px-10 py-14 grid md:grid-cols-12 gap-10 items-start">
                 <div className="md:col-span-5">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-glow">
-                            <img src="/logo.svg" alt="" width="40" height="40" className="w-10 h-10"/>
+                        <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-glow bg-brand/10">
+                            <img src="/dewelope-mark-white.svg" alt="" width="40" height="40" className="w-10 h-10 p-1"/>
                         </div>
                         <div>
                             <div className="font-display font-semibold text-[22px] tracking-tight leading-none">
@@ -87,7 +87,7 @@ const Footer = () => {
 
             <div className="border-t border-white/5">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted">
-                    <div>© {new Date().getFullYear()} DeWelope Softwares · Crafted with React, Three.js & care.</div>
+                    <div>© {new Date().getFullYear()} DeWelope Softwares (SMC-Private) Limited · Crafted with React, Three.js &amp; care.</div>
                     <div className="font-mono">dewelope.com · {profile.location}</div>
                 </div>
             </div>

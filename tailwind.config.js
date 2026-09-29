@@ -5,22 +5,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Brand: deep midnight + electric accents
-        primary: "#06070d",
-        surface: "#0c0e1a",
-        "surface-2": "#11142a",
-        "surface-3": "#171a36",
-        border: "#1f2347",
-        secondary: "#9aa3c7",
-        muted: "#6b7299",
-        accent: "#7c5cff",        // electric violet
-        "accent-2": "#22d3ee",    // cyan
-        "accent-3": "#a3e635",    // lime
-        "accent-4": "#fb7185",    // rose
+        // Brand: ink black + brand red (DeWelope brand guide)
+        //   Brand red  #C0292F  ·  Ink black #141414
+        primary: "#141414",       // ink black — never pure #000
+        surface: "#1a1a1a",       // raised ink
+        "surface-2": "#212121",
+        "surface-3": "#2a2a2a",
+        border: "#333333",
+        secondary: "#b7b7b7",     // muted warm grey text
+        muted: "#8a8a8a",
+        brand: "#C0292F",         // brand red — the single accent red
+        "brand-600": "#a3232a",   // darker red (hover/pressed)
+        "brand-400": "#d4494f",   // lighter red (highlights)
+        accent: "#C0292F",        // accent === brand red (was violet)
+        "accent-2": "#d4494f",    // lighter brand red (was cyan)
+        "accent-3": "#e8e8e8",    // near-white neutral highlight (was lime)
+        "accent-4": "#C0292F",    // (was rose) — keep red family
         // legacy aliases (kept so existing imports compile)
-        tertiary: "#11142a",
-        "black-100": "#0c0e1a",
-        "black-200": "#06070d",
+        tertiary: "#212121",
+        "black-100": "#1a1a1a",
+        "black-200": "#141414",
         "white-100": "#f3f3f3",
       },
       fontFamily: {
@@ -29,9 +33,9 @@ module.exports = {
         mono: ["'JetBrains Mono'", "ui-monospace", "monospace"],
       },
       boxShadow: {
-        card: "0 30px 80px -20px rgba(124, 92, 255, 0.35)",
-        glow: "0 0 60px rgba(124, 92, 255, 0.45)",
-        "glow-cyan": "0 0 60px rgba(34, 211, 238, 0.35)",
+        card: "0 30px 80px -20px rgba(192, 41, 47, 0.35)",
+        glow: "0 0 60px rgba(192, 41, 47, 0.45)",
+        "glow-cyan": "0 0 60px rgba(192, 41, 47, 0.28)",
         inset: "inset 0 1px 0 0 rgba(255,255,255,0.06)",
       },
       screens: {
@@ -39,11 +43,11 @@ module.exports = {
       },
       backgroundImage: {
         "grid-pattern":
-          "linear-gradient(rgba(124,92,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(124,92,255,0.07) 1px, transparent 1px)",
+          "linear-gradient(rgba(192,41,47,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(192,41,47,0.07) 1px, transparent 1px)",
         "radial-glow":
-          "radial-gradient(circle at 50% 0%, rgba(124,92,255,0.18), transparent 60%)",
+          "radial-gradient(circle at 50% 0%, rgba(192,41,47,0.18), transparent 60%)",
         "hero-pattern":
-          "radial-gradient(ellipse at top, rgba(124,92,255,0.18), transparent 55%), radial-gradient(ellipse at bottom right, rgba(34,211,238,0.10), transparent 60%)",
+          "radial-gradient(ellipse at top, rgba(192,41,47,0.20), transparent 55%), radial-gradient(ellipse at bottom right, rgba(192,41,47,0.08), transparent 60%)",
       },
       backgroundSize: {
         grid: "44px 44px",

@@ -11,13 +11,13 @@ const prefersReducedMotion = () =>
 const MiniStudio = () => (
     <Environment resolution={128} frames={1}>
         <Lightformer form="rect" intensity={2.2} color="#ffffff" rotation-x={Math.PI / 2} position={[0, 5, -2]} scale={[8, 8, 1]}/>
-        <Lightformer form="rect" intensity={1.2} color="#cdd5ff" rotation-y={Math.PI / 2} position={[-4, 1, -2]} scale={[12, 2, 1]}/>
-        <Lightformer form="rect" intensity={1.0} color="#e6eeff" rotation-y={-Math.PI / 2} position={[4, 1, -2]} scale={[12, 2, 1]}/>
+        <Lightformer form="rect" intensity={1.2} color="#f0d0d1" rotation-y={Math.PI / 2} position={[-4, 1, -2]} scale={[12, 2, 1]}/>
+        <Lightformer form="rect" intensity={1.0} color="#f7e4e5" rotation-y={-Math.PI / 2} position={[4, 1, -2]} scale={[12, 2, 1]}/>
         <Lightformer form="circle" intensity={0.7} color="#ffffff" position={[0, 1, 4]} scale={6}/>
     </Environment>
 );
 
-const chromeish = (color = "#dfe4f5") => ({
+const chromeish = (color = "#f0d8d9") => ({
     color,
     metalness: 1,
     roughness: 0.22,
@@ -58,7 +58,7 @@ const StackShape = ({reduceMotion, hoverRef}) => {
             {Array.from({length: COUNT}).map((_, i) => (
                 <mesh key={i} ref={(el) => (layers.current[i] = el)}>
                     <boxGeometry args={[1.2 - i * 0.1, 0.14, 1.2 - i * 0.1]}/>
-                    <meshPhysicalMaterial {...chromeish(i % 2 ? "#a78bfa" : "#e8eaf2")}/>
+                    <meshPhysicalMaterial {...chromeish(i % 2 ? "#C0292F" : "#ededed")}/>
                 </mesh>
             ))}
         </group>
@@ -108,7 +108,7 @@ const ClusterShape = ({reduceMotion, hoverRef}) => {
                         <group key={`l-${i}`} position={[p[0] / 2, p[1] / 2, p[2] / 2]}>
                             <mesh lookAt={[p[0], p[1], p[2]]}>
                                 <cylinderGeometry args={[0.008, 0.008, len, 8]}/>
-                                <meshStandardMaterial color="#a78bfa" transparent opacity={0.55}/>
+                                <meshStandardMaterial color="#C0292F" transparent opacity={0.55}/>
                             </mesh>
                         </group>
                     );
@@ -117,7 +117,7 @@ const ClusterShape = ({reduceMotion, hoverRef}) => {
                 {positions.map((p, i) => (
                     <mesh key={`n-${i}`} ref={(el) => (nodes.current[i] = el)} position={p}>
                         <sphereGeometry args={[0.13, 20, 20]}/>
-                        <meshPhysicalMaterial {...glossyPaint(i % 2 ? "#7c5cff" : "#22d3ee")}/>
+                        <meshPhysicalMaterial {...glossyPaint(i % 2 ? "#C0292F" : "#d4494f")}/>
                     </mesh>
                 ))}
             </group>
@@ -145,16 +145,16 @@ const VaultShape = ({reduceMotion, hoverRef}) => {
             <group ref={group}>
                 <mesh>
                     <boxGeometry args={[1.2, 1.2, 1.2]}/>
-                    <meshPhysicalMaterial {...chromeish("#dfe4f5")}/>
+                    <meshPhysicalMaterial {...chromeish("#f0d8d9")}/>
                 </mesh>
                 {/* Inset ring on the front */}
                 <mesh position={[0, 0, 0.61]}>
                     <torusGeometry args={[0.35, 0.04, 20, 48]}/>
-                    <meshPhysicalMaterial {...chromeish("#f0c160")}/>
+                    <meshPhysicalMaterial {...chromeish("#d4494f")}/>
                 </mesh>
                 <mesh ref={knob} position={[0, 0, 0.64]}>
                     <cylinderGeometry args={[0.08, 0.08, 0.06, 20]}/>
-                    <meshPhysicalMaterial {...chromeish("#f0c160")}/>
+                    <meshPhysicalMaterial {...chromeish("#d4494f")}/>
                 </mesh>
                 {/* Bolt dots at corners */}
                 {[
@@ -193,7 +193,7 @@ const GearShape = ({reduceMotion, hoverRef}) => {
             <group ref={group}>
                 <mesh>
                     <torusGeometry args={[0.62, 0.18, 20, 64]}/>
-                    <meshPhysicalMaterial {...chromeish("#dfe4f5")}/>
+                    <meshPhysicalMaterial {...chromeish("#f0d8d9")}/>
                 </mesh>
                 {Array.from({length: teeth}).map((_, i) => {
                     const a = (i / teeth) * Math.PI * 2;
@@ -206,7 +206,7 @@ const GearShape = ({reduceMotion, hoverRef}) => {
                             ref={(el) => (teethRefs.current[i] = el)}
                         >
                             <boxGeometry args={[0.16, 0.14, 0.22]}/>
-                            <meshPhysicalMaterial {...chromeish("#cbd2e5")}/>
+                            <meshPhysicalMaterial {...chromeish("#C0292F")}/>
                         </mesh>
                     );
                 })}
@@ -247,10 +247,10 @@ const NeuralShape = ({reduceMotion, hoverRef}) => {
             <group ref={group}>
                 <mesh>
                     <icosahedronGeometry args={[0.58, 0]}/>
-                    <meshPhysicalMaterial {...chromeish("#a78bfa")} flatShading/>
+                    <meshPhysicalMaterial {...chromeish("#C0292F")} flatShading/>
                 </mesh>
                 {[0, 1, 2, 3].map((i) => {
-                    const palette = ["#22d3ee", "#a3e635", "#fb7185", "#7c5cff"];
+                    const palette = ["#d4494f", "#e8e8e8", "#a3232a", "#C0292F"];
                     return (
                         <mesh key={i} ref={(el) => (sats.current[i] = el)}>
                             <sphereGeometry args={[0.11 - (i % 2) * 0.02, 20, 20]}/>
@@ -281,17 +281,17 @@ const HexShape = ({reduceMotion, hoverRef}) => {
             <group ref={group}>
                 <mesh>
                     <cylinderGeometry args={[0.75, 0.75, 0.85, 6]}/>
-                    <meshPhysicalMaterial {...chromeish("#dfe4f5")}/>
+                    <meshPhysicalMaterial {...chromeish("#f0d8d9")}/>
                 </mesh>
                 {/* Top cap ring */}
                 <mesh position={[0, 0.42, 0]} rotation={[Math.PI / 2, 0, 0]}>
                     <torusGeometry args={[0.7, 0.02, 12, 8]}/>
-                    <meshStandardMaterial color="#7c5cff" metalness={0.8} roughness={0.25}/>
+                    <meshStandardMaterial color="#C0292F" metalness={0.8} roughness={0.25}/>
                 </mesh>
                 {/* Subtle floating chip hovering above */}
                 <mesh position={[0, 1.05, 0]}>
                     <boxGeometry args={[0.28, 0.06, 0.28]}/>
-                    <meshPhysicalMaterial {...glossyPaint("#22d3ee")}/>
+                    <meshPhysicalMaterial {...glossyPaint("#d4494f")}/>
                 </mesh>
             </group>
         </Float>
@@ -310,7 +310,7 @@ const SHAPES = {
 // ----------------------------------------------------------------
 // Host canvas — IO-gated
 // ----------------------------------------------------------------
-const ServiceCanvas = ({shape = "stack", tint = "#7c5cff"}) => {
+const ServiceCanvas = ({shape = "stack", tint = "#C0292F"}) => {
     const wrapRef = useRef(null);
     const hoverRef = useRef(false);
     const [inView, setInView] = useState(false);
@@ -363,7 +363,7 @@ const ServiceCanvas = ({shape = "stack", tint = "#7c5cff"}) => {
                     <Suspense fallback={null}>
                         <MiniStudio/>
                         <Shape reduceMotion={reduceMotion} hoverRef={hoverRef}/>
-                        <ContactShadows position={[0, -1.05, 0]} opacity={0.45} blur={2.2} far={3} scale={4} color="#06070d"/>
+                        <ContactShadows position={[0, -1.05, 0]} opacity={0.45} blur={2.2} far={3} scale={4} color="#141414"/>
                     </Suspense>
                 </Canvas>
             )}

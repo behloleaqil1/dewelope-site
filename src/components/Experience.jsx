@@ -41,7 +41,7 @@ const ExperienceCard = ({experience}) => {
                 </span>
             }
             iconStyle={{
-                background: experience.iconBg || "#1a1d33",
+                background: experience.iconBg || "#212121",
                 boxShadow:
                     "0 0 0 4px rgba(124,92,255,0.4), inset 0 0 0 4px rgba(0,0,0,0.04)",
                 padding: 0,

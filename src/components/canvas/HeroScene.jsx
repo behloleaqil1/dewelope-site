@@ -22,8 +22,8 @@ const prefersReducedMotion = () =>
 const Studio = () => (
     <Environment resolution={256} frames={1}>
         <Lightformer form="rect" intensity={2.5} color="#ffffff" rotation-x={Math.PI / 2} position={[0, 8, -2]} scale={[12, 12, 1]}/>
-        <Lightformer form="rect" intensity={1.4} color="#c9d1ff" rotation-y={Math.PI / 2} position={[-6, 1, -2]} scale={[24, 2, 1]}/>
-        <Lightformer form="rect" intensity={1.2} color="#e6f4ff" rotation-y={-Math.PI / 2} position={[6, 1, -2]} scale={[24, 2, 1]}/>
+        <Lightformer form="rect" intensity={1.4} color="#f0d0d1" rotation-y={Math.PI / 2} position={[-6, 1, -2]} scale={[24, 2, 1]}/>
+        <Lightformer form="rect" intensity={1.2} color="#f7e4e5" rotation-y={-Math.PI / 2} position={[6, 1, -2]} scale={[24, 2, 1]}/>
         <Lightformer form="circle" intensity={0.9} color="#ffffff" position={[0, 2, 6]} scale={8}/>
     </Environment>
 );
@@ -59,7 +59,7 @@ const ParticleField = ({count = 380, radius = 13}) => {
                 sizeAttenuation
                 transparent
                 opacity={0.55}
-                color="#cfd6ff"
+                color="#f0d0d1"
                 depthWrite={false}
                 blending={THREE.AdditiveBlending}
             />
@@ -158,7 +158,7 @@ const Core = ({reduceMotion, mobile, mouseRef}) => {
                         distortion={0.06}
                         distortionScale={0.3}
                         temporalDistortion={0.03}
-                        color="#e8eaf2"
+                        color="#ededed"
                         envMapIntensity={1.1}
                     />
                 </mesh>
@@ -166,7 +166,7 @@ const Core = ({reduceMotion, mobile, mouseRef}) => {
                 <mesh ref={inner}>
                     <icosahedronGeometry args={[0.55, 1]}/>
                     <meshBasicMaterial
-                        color="#a78bfa"
+                        color="#C0292F"
                         wireframe
                         transparent
                         opacity={0.35}
@@ -175,13 +175,13 @@ const Core = ({reduceMotion, mobile, mouseRef}) => {
             </Float>
 
             {/* Two calm rings + a couple of satellites */}
-            <Ring radius={1.95} tube={0.008} rotation={[Math.PI / 2.2, 0, 0]} color="#a78bfa" speed={0.1}/>
+            <Ring radius={1.95} tube={0.008} rotation={[Math.PI / 2.2, 0, 0]} color="#C0292F" speed={0.1}/>
             <Ring radius={2.55} tube={0.006} rotation={[Math.PI / 1.7, Math.PI / 4, 0]} color="#7f9bff" speed={0.08} reverse/>
 
             <Satellite radius={1.95} rotation={[Math.PI / 2.2, 0, 0]} speed={0.18} phase={0}/>
             <Satellite radius={2.55} rotation={[Math.PI / 1.7, Math.PI / 4, 0]} speed={-0.14} phase={1.8} size={0.1}/>
 
-            <ContactShadows position={[0, -1.9, 0]} opacity={0.35} blur={3.2} far={5} scale={8} color="#06070d"/>
+            <ContactShadows position={[0, -1.9, 0]} opacity={0.35} blur={3.2} far={5} scale={8} color="#141414"/>
         </group>
     );
 };
