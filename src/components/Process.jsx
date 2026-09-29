@@ -45,7 +45,7 @@ const Process = () => {
                     }}
                     className="absolute -top-[4px] -translate-x-1/2 pointer-events-none"
                 >
-                    <div className="relative w-4 h-4 rounded-full bg-accent-2 shadow-[0_0_20px_rgba(34,211,238,0.9)]">
+                    <div className="relative w-4 h-4 rounded-full bg-accent-2 shadow-[0_0_20px_rgba(192, 41, 47,0.9)]">
                         <span className="absolute inset-0 rounded-full bg-accent-2 animate-ping opacity-60"/>
                     </div>
                 </motion.div>
@@ -80,7 +80,7 @@ const ProcessNode = ({step, index, threshold, progress}) => {
     // When scroll progress is past this node's threshold, light up.
     const lit = useTransform(progress, (v) => (v >= threshold ? 1 : 0));
     const scale = useTransform(progress, (v) => (v >= threshold ? 1.0 : 0.85));
-    const nodeBg = useTransform(lit, [0, 1], ["rgba(255,255,255,0.12)", "rgba(34,211,238,1)"]);
+    const nodeBg = useTransform(lit, [0, 1], ["rgba(255,255,255,0.12)", "rgba(192, 41, 47,1)"]);
     const labelOp = useTransform(lit, [0, 1], [0.5, 1]);
 
     return (

@@ -124,11 +124,11 @@ html.has-custom-cursor [data-cursor="native"] {
 }
 
 /* legacy gradient aliases used in project tags */
-.blue-text-gradient { background: linear-gradient(to top, #2f80ed, #56ccf2); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.green-text-gradient { background: linear-gradient(to top, #11998e, #38ef7d); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.pink-text-gradient { background: linear-gradient(to top, #ec008c, #fc6767); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.orange-text-gradient { background: linear-gradient(to top, #f12711, #f5af19); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.red-text-gradient { background: linear-gradient(to top, #ec008c, #721414); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.blue-text-gradient { background: linear-gradient(to top, #C0292F, #d4494f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.green-text-gradient { background: linear-gradient(to top, #a3232a, #d4494f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pink-text-gradient { background: linear-gradient(to top, #C0292F, #e8a0a2); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.orange-text-gradient { background: linear-gradient(to top, #a3232a, #d4494f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.red-text-gradient { background: linear-gradient(to top, #C0292F, #a3232a); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
 .violet-gradient {
   background: linear-gradient(180deg, #C0292F 0%, rgba(192, 41, 47, 0) 100%);

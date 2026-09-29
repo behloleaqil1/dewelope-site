@@ -30,11 +30,11 @@ const ExperienceCard = ({experience}) => {
                 color: "#fff",
                 borderRadius: "20px",
                 border: "1px solid rgba(255,255,255,0.08)",
-                boxShadow: "0 25px 80px -25px rgba(124,92,255,0.3)",
+                boxShadow: "0 25px 80px -25px rgba(192, 41, 47,0.3)",
                 backdropFilter: "blur(14px)",
                 padding: "26px",
             }}
-            contentArrowStyle={{borderRight: "7px solid rgba(124,92,255,0.4)"}}
+            contentArrowStyle={{borderRight: "7px solid rgba(192, 41, 47,0.4)"}}
             date={
                 <span className="text-secondary font-mono text-sm uppercase tracking-wider">
                     {experience.date}
@@ -43,7 +43,7 @@ const ExperienceCard = ({experience}) => {
             iconStyle={{
                 background: experience.iconBg || "#212121",
                 boxShadow:
-                    "0 0 0 4px rgba(124,92,255,0.4), inset 0 0 0 4px rgba(0,0,0,0.04)",
+                    "0 0 0 4px rgba(192, 41, 47,0.4), inset 0 0 0 4px rgba(0,0,0,0.04)",
                 padding: 0,
             }}
             icon={
@@ -121,7 +121,7 @@ const Experience = () => {
                 </p>
             </motion.div>
             <div className="mt-16 flex flex-col">
-                <VerticalTimeline lineColor="rgba(124,92,255,0.25)">
+                <VerticalTimeline lineColor="rgba(192, 41, 47,0.25)">
                     {experiences.map((experience, index) => (
                         <ExperienceCard key={index} experience={experience}/>
                     ))}

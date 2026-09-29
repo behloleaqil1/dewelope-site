@@ -39,7 +39,7 @@ const ProjectCard = ({project, index, onOpen}) => {
     };
 
     const overlayStyle = {
-        background: useMotionTemplate`radial-gradient(360px circle at ${useMotionTemplate`calc(${glowX} * 100%)`} ${useMotionTemplate`calc(${glowY} * 100%)`}, rgba(124,92,255,0.22), transparent 60%)`,
+        background: useMotionTemplate`radial-gradient(360px circle at ${useMotionTemplate`calc(${glowX} * 100%)`} ${useMotionTemplate`calc(${glowY} * 100%)`}, rgba(192, 41, 47,0.22), transparent 60%)`,
     };
 
     const {name, company, description, tags, motif3D, tint, metric} = project;

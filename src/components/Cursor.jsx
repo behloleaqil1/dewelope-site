@@ -78,7 +78,7 @@ const Cursor = () => {
                 `translate3d(${dotPos.x}px, ${dotPos.y}px, 0) translate(-50%, -50%) scale(${dotScale})`;
             halo.style.transform =
                 `translate3d(${haloPos.x}px, ${haloPos.y}px, 0) translate(-50%, -50%) scale(${haloScale})`;
-            halo.style.borderColor = state.hovering ? "rgba(34, 211, 238, 0.9)" : "rgba(124, 92, 255, 0.45)";
+            halo.style.borderColor = state.hovering ? "rgba(192, 41, 47, 0.9)" : "rgba(192, 41, 47, 0.45)";
 
             raf = requestAnimationFrame(loop);
         };

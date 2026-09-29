@@ -39,7 +39,7 @@ const ServiceCard = ({service, index}) => {
 
     const glowX = useMotionTemplate`${useMotionTemplate`${mouseX}`}`;
     const overlayStyle = {
-        background: useMotionTemplate`radial-gradient(300px circle at ${useMotionTemplate`calc(${mouseX} * 100%)`} ${useMotionTemplate`calc(${mouseY} * 100%)`}, rgba(124,92,255,0.18), transparent 60%)`,
+        background: useMotionTemplate`radial-gradient(300px circle at ${useMotionTemplate`calc(${mouseX} * 100%)`} ${useMotionTemplate`calc(${mouseY} * 100%)`}, rgba(192, 41, 47,0.18), transparent 60%)`,
     };
 
     return (

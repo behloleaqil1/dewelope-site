@@ -81,11 +81,11 @@ const Tech = () => {
                 <div
                     aria-hidden
                     className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full blur-3xl"
-                    style={{background: "radial-gradient(circle, rgba(124,92,255,0.45), transparent 70%)"}}
+                    style={{background: "radial-gradient(circle, rgba(192, 41, 47,0.45), transparent 70%)"}}
                 />
                 <div
                     aria-hidden
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-accent-2 shadow-[0_0_24px_rgba(34,211,238,0.9)]"
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-accent-2 shadow-[0_0_24px_rgba(192, 41, 47,0.9)]"
                 />
 
                 {placed.map(({tech, angle, radius, depth, delay}, i) => {

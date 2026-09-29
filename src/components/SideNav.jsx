@@ -79,7 +79,7 @@ const SideNav = () => {
                             className={cn(
                                 "relative block rounded-full transition-all duration-300",
                                 isActive
-                                    ? "w-2.5 h-2.5 bg-gradient-to-br from-accent to-accent-2 shadow-[0_0_12px_rgba(124,92,255,0.8)]"
+                                    ? "w-2.5 h-2.5 bg-gradient-to-br from-accent to-accent-2 shadow-[0_0_12px_rgba(192, 41, 47,0.8)]"
                                     : "w-1.5 h-1.5 bg-white/40 group-hover:bg-white/80"
                             )}
                         />
