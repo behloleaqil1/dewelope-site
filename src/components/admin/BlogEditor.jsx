@@ -1,5 +1,7 @@
 import React from "react";
 import {Field, TextInput, TextArea, StringList, ItemList} from "./fields.jsx";
+import {RichTextEditor} from "./RichTextEditor.jsx";
+import {ImageInput} from "./ImageInput.jsx";
 import {slugify} from "../../utils/slug.js";
 
 // Blog post model:
@@ -62,10 +64,12 @@ export function BlogEditor({value, onChange}) {
                         </div>
 
                         <Field label="Excerpt" hint="Short summary shown in the blog list"><TextArea value={post.excerpt} onChange={(v) => update({excerpt: v})} rows={2}/></Field>
-                        <Field label="Body" hint="Plain text / simple markdown. Blank lines separate paragraphs."><TextArea value={post.body} onChange={(v) => update({body: v})} rows={10}/></Field>
+                        <Field label="Body" hint="Rich text — formatting, lists, links and inline images.">
+                            <RichTextEditor value={post.body} onChange={(v) => update({body: v})}/>
+                        </Field>
 
                         <div className="grid sm:grid-cols-2 gap-4">
-                            <Field label="Cover image URL"><TextInput value={post.coverImage} onChange={(v) => update({coverImage: v})}/></Field>
+                            <ImageInput label="Cover image" hint="Upload or paste a URL" value={post.coverImage} onChange={(v) => update({coverImage: v})}/>
                             <Field label="Author"><TextInput value={post.author} onChange={(v) => update({author: v})}/></Field>
                         </div>
                         <div className="grid sm:grid-cols-2 gap-4">

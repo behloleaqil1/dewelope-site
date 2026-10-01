@@ -32,7 +32,7 @@ function resolveExperiences(list) {
 function resolveProjects(list) {
     return list.map((p) => ({
         ...p,
-        image: p.imageKey ? resolveAsset(p.imageKey) : undefined,
+        image: p.image || (p.imageKey ? resolveAsset(p.imageKey) : undefined),
         live_link: p.live_link || null,
         source_code_link: p.source_code_link || null,
     }));

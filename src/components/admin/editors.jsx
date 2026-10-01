@@ -1,5 +1,6 @@
 import React from "react";
 import {Field, TextInput, TextArea, SelectInput, StringList, ItemList} from "./fields.jsx";
+import {ImageInput} from "./ImageInput.jsx";
 import {ASSET_KEYS} from "../../utils/assetMap.js";
 
 const grid2 = "grid sm:grid-cols-2 gap-4";
@@ -177,8 +178,9 @@ export function ProjectsEditor({value, onChange}) {
                         <Field label="Company / sector"><TextInput value={it.company} onChange={(v) => update({company: v})}/></Field>
                     </div>
                     <Field label="Description"><TextArea value={it.description} onChange={(v) => update({description: v})} rows={4}/></Field>
+                    <ImageInput label="Image" hint="Upload a screenshot, or leave empty to use the 3D motif cover" value={it.image} onChange={(v) => update({image: v})}/>
                     <div className={grid2}>
-                        <Field label="Image" hint="Leave empty to use the 3D motif cover"><SelectInput value={it.imageKey} onChange={(v) => update({imageKey: v})} options={ASSET_KEYS}/></Field>
+                        <Field label="Bundled image (fallback)" hint="Used only if no image uploaded above"><SelectInput value={it.imageKey} onChange={(v) => update({imageKey: v})} options={ASSET_KEYS}/></Field>
                         <Field label="3D motif"><TextInput value={it.motif3D} onChange={(v) => update({motif3D: v})}/></Field>
                     </div>
                     <div className={grid2}>
@@ -219,8 +221,9 @@ export function TestimonialsEditor({value, onChange}) {
                     </div>
                     <div className={grid2}>
                         <Field label="Company / source"><TextInput value={it.company} onChange={(v) => update({company: v})}/></Field>
-                        <Field label="Avatar URL"><TextInput value={it.image} onChange={(v) => update({image: v})}/></Field>
+                        <div/>
                     </div>
+                    <ImageInput label="Avatar" hint="Upload or paste an avatar URL" value={it.image} onChange={(v) => update({image: v})} maxDim={256} quality={0.85}/>
                 </div>
             )}
         />
@@ -241,8 +244,9 @@ export function SeoEditor({value, onChange}) {
             <Field label="Keywords" hint="Comma-separated"><TextArea value={seo.keywords} onChange={(v) => set({keywords: v})} rows={2}/></Field>
             <div className={grid2}>
                 <Field label="Canonical base URL"><TextInput value={seo.canonicalBase} onChange={(v) => set({canonicalBase: v})}/></Field>
-                <Field label="OG image URL"><TextInput value={seo.ogImage} onChange={(v) => set({ogImage: v})}/></Field>
+                <div/>
             </div>
+            <ImageInput label="OG / social share image" hint="1200×630 recommended. Upload or paste a URL." value={seo.ogImage} onChange={(v) => set({ogImage: v})} maxDim={1200} quality={0.85}/>
             <div className="grid sm:grid-cols-3 gap-4">
                 <Field label="Twitter card"><TextInput value={seo.twitterCard} onChange={(v) => set({twitterCard: v})}/></Field>
                 <Field label="Twitter @site"><TextInput value={seo.twitterSite} onChange={(v) => set({twitterSite: v})}/></Field>

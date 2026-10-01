@@ -3,6 +3,7 @@ import {Link, useParams} from "react-router-dom";
 import {Helmet} from "react-helmet-async";
 import {FiArrowLeft} from "react-icons/fi";
 import {useSiteContent} from "../utils/useSiteContent.js";
+import {sanitizeHtml} from "../utils/sanitizeHtml.js";
 
 export default function BlogPost() {
     const {slug} = useParams();
@@ -48,7 +49,7 @@ export default function BlogPost() {
         mainEntityOfPage: {"@type": "WebPage", "@id": url},
     };
 
-    const paragraphs = String(post.body || "").split(/\n{2,}/).filter(Boolean);
+    const bodyHtml = sanitizeHtml(post.body || "");
 
     return (
         <div className="relative z-0 bg-primary noise-overlay min-h-screen text-white">
@@ -93,11 +94,10 @@ export default function BlogPost() {
                          className="mt-8 w-full rounded-2xl object-cover"/>
                 ) : null}
 
-                <div className="mt-10 space-y-5 text-[17px] leading-relaxed text-secondary">
-                    {paragraphs.map((para, i) => (
-                        <p key={i}>{para}</p>
-                    ))}
-                </div>
+                <div
+                    className="blog-body mt-10 text-[17px] leading-relaxed text-secondary"
+                    dangerouslySetInnerHTML={{__html: bodyHtml}}
+                />
             </article>
         </div>
     );
