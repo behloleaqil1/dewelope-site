@@ -19,11 +19,12 @@ import {slideIn} from "../utils/motion";
 import {isPrerender} from "../utils/prerender.js";
 import SectionWrapper from "../hoc/index.js";
 import {styles} from "../style.js";
-import {profile} from "../constants/index.js";
+import {profile as profileSeed} from "../constants/index.js";
+import {useSiteContent} from "../utils/useSiteContent.js";
 import {cn} from "../utils/cn.js";
 
 // === Config — read from Vite env, with sensible fallbacks ===
-const EMAIL_TO = import.meta.env.VITE_CONTACT_EMAIL || profile.email;
+const EMAIL_TO = import.meta.env.VITE_CONTACT_EMAIL || profileSeed.email;
 const EMAILJS_SERVICE = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -101,6 +102,7 @@ const Field = ({label, name, value, onChange, type = "text", textarea, rows, pla
 };
 
 const Contact = () => {
+    const {profile} = useSiteContent();
     const formRef = useRef();
     const [form, setForm] = useState({name: "", email: "", message: "", _website: ""});
     const [errors, setErrors] = useState({});

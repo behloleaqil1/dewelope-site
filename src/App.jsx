@@ -21,6 +21,12 @@ const StarsCanvas = lazy(() =>
     import("./components/canvas/index.js").then((m) => ({default: m.StarsCanvas}))
 );
 
+const Blog = lazy(() => import("./components/Blog.jsx"));
+const BlogPost = lazy(() => import("./components/BlogPost.jsx"));
+const AdminLogin = lazy(() => import("./components/admin/AdminLogin.jsx"));
+const AdminDashboard = lazy(() => import("./components/admin/AdminDashboard.jsx"));
+const RequireAuth = lazy(() => import("./components/admin/RequireAuth.jsx"));
+
 const SectionFallback = ({label = "Loading"}) => (
     <div className="w-full max-w-7xl mx-auto px-6 sm:px-16 py-24 flex items-center gap-3 text-muted">
         <div className="canvas-loader"/>
@@ -90,6 +96,20 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/mvp" element={<MvpLanding/>}/>
+                <Route path="/blog" element={
+                    <Suspense fallback={null}><Blog/></Suspense>
+                }/>
+                <Route path="/blog/:slug" element={
+                    <Suspense fallback={null}><BlogPost/></Suspense>
+                }/>
+                <Route path="/admin/login" element={
+                    <Suspense fallback={null}><AdminLogin/></Suspense>
+                }/>
+                <Route path="/admin" element={
+                    <Suspense fallback={null}>
+                        <RequireAuth><AdminDashboard/></RequireAuth>
+                    </Suspense>
+                }/>
             </Routes>
         </BrowserRouter>
     );

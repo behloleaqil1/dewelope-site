@@ -1,9 +1,11 @@
 import React from "react";
 import {FiArrowUp, FiFacebook, FiGithub, FiInstagram, FiLinkedin, FiMail, FiTwitter} from "react-icons/fi";
 import {SiUpwork} from "react-icons/si";
-import {profile, navLinks} from "../constants/index.js";
+import {navLinks} from "../constants/index.js";
+import {useSiteContent} from "../utils/useSiteContent.js";
 
 const Footer = () => {
+    const {profile} = useSiteContent();
     return (
         <footer className="relative z-10 mt-32 border-t border-white/5">
             <div className="max-w-7xl mx-auto px-6 sm:px-10 py-14 grid md:grid-cols-12 gap-10 items-start">

@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 import {FiArrowLeft, FiArrowRight} from "react-icons/fi";
 import {styles} from "../style.js";
-import {testimonials} from "../constants/index.js";
+import {useSiteContent} from "../utils/useSiteContent.js";
 import {textVariant} from "../utils/motion.js";
 import SectionWrapper from "../hoc/index.js";
 import {cn} from "../utils/cn.js";
@@ -11,6 +11,7 @@ const CARD_OFFSET = 18;  // y offset per card-behind in px
 const CARD_SCALE_STEP = 0.05;
 
 const Feedbacks = () => {
+    const {testimonials} = useSiteContent();
     const [active, setActive] = useState(0);
     const pauseRef = useRef(false);
 

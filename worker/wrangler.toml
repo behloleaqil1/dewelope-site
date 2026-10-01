@@ -1,0 +1,14 @@
+name = "dewelope-publish"
+main = "publish-worker.js"
+compatibility_date = "2024-11-01"
+
+# Non-secret configuration. Secrets (GITHUB_TOKEN, PUBLISH_TOKEN) are NOT here —
+# set them with `wrangler secret put <NAME>`.
+[vars]
+REPO_OWNER = "behloleaqil1"
+REPO_NAME = "dewelope-site"
+REPO_BRANCH = "main"
+CONTENT_PATH = "public/content.json"
+# Lock this to the live site origin in production to prevent other sites
+# from calling your publish endpoint. Use "*" only for local testing.
+ALLOWED_ORIGIN = "https://dewelope.com"

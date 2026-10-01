@@ -1,12 +1,13 @@
 import React, {useRef} from "react";
 import {motion, useScroll, useTransform, useSpring} from "framer-motion";
 import {styles} from "../style.js";
-import {processSteps} from "../constants/index.js";
+import {useSiteContent} from "../utils/useSiteContent.js";
 import {fadeIn, textVariant} from "../utils/motion.js";
 import SectionWrapper from "../hoc/index.js";
 import {cn} from "../utils/cn.js";
 
 const Process = () => {
+    const {processSteps} = useSiteContent();
     const sectionRef = useRef(null);
     const {scrollYProgress} = useScroll({
         target: sectionRef,

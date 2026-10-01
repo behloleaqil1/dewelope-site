@@ -2,10 +2,11 @@ import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {motion} from "framer-motion";
 import {FiArrowUpRight} from "react-icons/fi";
-import {profile} from "../constants/index.js";
+import {useSiteContent} from "../utils/useSiteContent.js";
 import {cn} from "../utils/cn.js";
 
 const Navbar = () => {
+    const {profile} = useSiteContent();
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -53,6 +54,12 @@ const Navbar = () => {
                         className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-white/80 hover:text-white transition-colors"
                     >
                         Build an MVP
+                    </Link>
+                    <Link
+                        to="/blog"
+                        className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-white/80 hover:text-white transition-colors"
+                    >
+                        Blog
                     </Link>
                     <a
                         href="https://tools.dewelope.com"

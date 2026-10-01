@@ -2,7 +2,7 @@ import React from "react";
 import {motion, useReducedMotion} from "framer-motion";
 import {FiArrowDown, FiArrowUpRight, FiMail} from "react-icons/fi";
 import HeroScene from "./canvas/HeroScene.jsx";
-import {heroStats, profile} from "../constants/index.js";
+import {useSiteContent} from "../utils/useSiteContent.js";
 import {isPrerender} from "../utils/prerender.js";
 
 const word = (reduce) => ({
@@ -33,6 +33,7 @@ const Word = ({children, i, className = "", variants}) => (
 );
 
 const Hero = () => {
+    const {heroStats, profile} = useSiteContent();
     const reduce = useReducedMotion();
     const v = word(reduce);
 

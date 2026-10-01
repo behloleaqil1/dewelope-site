@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>DeWelope Softwares</title>
+    <!--
+      GitHub Pages SPA fallback. Pages serves this file for any unknown path.
+      We encode the requested path into a query string and redirect to the app
+      root, where a small snippet in index.html restores the real route via
+      history.replaceState. Prerendered routes (/, /mvp/) are served directly
+      and never hit this file.
+    -->
+    <script>
+        (function () {
+            var segmentCount = 0; // custom domain → no repo path segment to keep
+            var l = window.location;
+            var path = l.pathname.split('/').slice(0, 1 + segmentCount).join('/');
+            var rest = l.pathname.slice(1).split('/').slice(segmentCount).join('/');
+            l.replace(
+                l.protocol + '//' + l.host + path + '/?/' +
+                rest.replace(/&/g, '~and~') +
+                (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+                l.hash
+            );
+        })();
+    </script>
+</head>
+<body></body>
+</html>

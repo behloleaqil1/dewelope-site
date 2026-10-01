@@ -2,7 +2,7 @@ import React, {useRef} from "react";
 import {motion, useMotionTemplate, useMotionValue, useSpring} from "framer-motion";
 import {FiArrowUpRight} from "react-icons/fi";
 import {styles} from "../style.js";
-import {services} from "../constants/index.js";
+import {useSiteContent} from "../utils/useSiteContent.js";
 import {fadeIn, textVariant} from "../utils/motion.js";
 import SectionWrapper from "../hoc/index.js";
 import {cn} from "../utils/cn.js";
@@ -100,6 +100,7 @@ const ServiceCard = ({service, index}) => {
 };
 
 const About = () => {
+    const {services} = useSiteContent();
     return (
         <>
             {/* Heading — short, confident */}

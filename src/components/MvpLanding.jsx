@@ -5,7 +5,7 @@ import {Helmet} from "react-helmet-async";
 import {
     FiArrowUpRight, FiArrowRight, FiCheck, FiClock, FiShield, FiZap, FiCode, FiMail,
 } from "react-icons/fi";
-import {profile, processSteps} from "../constants/index.js";
+import {useSiteContent} from "../utils/useSiteContent.js";
 
 // Booking link (Cal.com). Email remains as a fallback CTA in the final section.
 const BOOKING_URL = "https://cal.com/m-behlole-aqil-f5th4a/30min";
@@ -59,6 +59,7 @@ const Pill = ({children}) => (
 );
 
 const MvpLanding = () => {
+    const {profile, processSteps} = useSiteContent();
     return (
         <div className="relative z-0 bg-primary noise-overlay overflow-x-hidden min-h-screen">
             <Helmet>
@@ -68,6 +69,11 @@ const MvpLanding = () => {
                 <meta property="og:title" content="Startup MVPs in 6–8 Weeks | DeWelope Softwares" />
                 <meta property="og:description" content="We turn ideas into production MVPs in 6–8 weeks — banking-grade rigor, startup speed." />
                 <meta property="og:url" content="https://dewelope.com/mvp/" />
+                <meta property="og:image" content="https://dewelope.com/og-image.png" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Startup MVPs in 6–8 Weeks | DeWelope Softwares" />
+                <meta name="twitter:description" content="We turn ideas into production MVPs in 6–8 weeks — banking-grade rigor, startup speed." />
+                <meta name="twitter:image" content="https://dewelope.com/og-image.png" />
             </Helmet>
 
             {/* Minimal header */}

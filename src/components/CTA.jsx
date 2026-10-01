@@ -1,9 +1,10 @@
 import React from "react";
 import {motion} from "framer-motion";
 import {FiArrowUpRight, FiMail} from "react-icons/fi";
-import {profile} from "../constants/index.js";
+import {useSiteContent} from "../utils/useSiteContent.js";
 
 const CTA = () => {
+    const {profile} = useSiteContent();
     return (
         <section aria-label="Call to action" className="relative py-20 sm:py-28">
             <div className="max-w-7xl mx-auto px-6 sm:px-10">

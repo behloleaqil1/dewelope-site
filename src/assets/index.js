@@ -31,12 +31,12 @@ import angular from './tech/angular.png';
 import laravel from './tech/laravel.png';
 import nextjs from './tech/nextjs.png';
 import postgresql from './tech/postgresql.png';
-import mysimplerx from './mysimplerx.png';
-import vars from './vars.png';
-import flexigolf from './flexigolf.png';
-import chotok from './chotok.png';
-import ugap from './ugap.png';
-import edfry from './edfry.png';
+import mysimplerx from './mysimplerx.webp';
+import vars from './vars.webp';
+import flexigolf from './flexigolf.webp';
+import chotok from './chotok.webp';
+import ugap from './ugap.webp';
+import edfry from './edfry.webp';
 
 
 export {

@@ -1,7 +1,7 @@
 import React, {useMemo, useRef} from "react";
 import {motion, useScroll, useTransform, useSpring} from "framer-motion";
 import {styles} from "../style.js";
-import {technologies} from "../constants/index.js";
+import {useSiteContent} from "../utils/useSiteContent.js";
 import {fadeIn, textVariant} from "../utils/motion.js";
 import SectionWrapper from "../hoc/index.js";
 
@@ -15,6 +15,7 @@ const rand = (seed) => {
 };
 
 const Tech = () => {
+    const {technologies} = useSiteContent();
     const sectionRef = useRef(null);
     const {scrollYProgress} = useScroll({
         target: sectionRef,
@@ -45,7 +46,7 @@ const Tech = () => {
             }
         });
         return technologies.slice(0, slots.length).map((t, i) => ({tech: t, ...slots[i]}));
-    }, []);
+    }, [technologies]);
 
     return (
         <div ref={sectionRef} className="relative">

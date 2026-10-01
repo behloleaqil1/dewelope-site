@@ -2,7 +2,7 @@ import React, {useRef, useState} from "react";
 import {AnimatePresence, motion, useMotionTemplate, useMotionValue, useSpring} from "framer-motion";
 import {FiArrowUpRight, FiPlay} from "react-icons/fi";
 import {styles} from "../style.js";
-import {projects} from "../constants/index.js";
+import {useSiteContent} from "../utils/useSiteContent.js";
 import {fadeIn, textVariant} from "../utils/motion.js";
 import SectionWrapper from "../hoc/index.js";
 import ProjectDetail from "./ProjectDetail.jsx";
@@ -11,7 +11,7 @@ import {isPrerender} from "../utils/prerender.js";
 
 const TILT_MAX = 8;
 
-const ProjectCard = ({project, index, onOpen}) => {
+const ProjectCard = ({project, index, total, onOpen}) => {
     const ref = useRef(null);
     const rx = useMotionValue(0);
     const ry = useMotionValue(0);
@@ -76,7 +76,7 @@ const ProjectCard = ({project, index, onOpen}) => {
 
             <div className="absolute top-4 sm:top-6 left-4 sm:left-6 right-4 sm:right-6 flex items-start justify-between gap-3">
                 <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/75 glass px-3 py-1.5 rounded-full">
-                    {String(index + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
+                    {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
                 </span>
                 <div className="flex items-center gap-2">
                     {metric && (
@@ -124,6 +124,7 @@ const ProjectCard = ({project, index, onOpen}) => {
 };
 
 const Works = () => {
+    const {projects} = useSiteContent();
     const [active, setActive] = useState(null);
     const handleOpen = (project, layoutId) => setActive({project, layoutId});
     const handleClose = () => setActive(null);
@@ -146,7 +147,7 @@ const Works = () => {
 
             <div className="mt-14 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                 {projects.map((p, i) => (
-                    <ProjectCard key={p.name} project={p} index={i} onOpen={handleOpen}/>
+                    <ProjectCard key={p.name} project={p} index={i} total={projects.length} onOpen={handleOpen}/>
                 ))}
             </div>
 

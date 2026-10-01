@@ -14,7 +14,7 @@ import {fileURLToPath} from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, "..", "dist");
-const ROUTES = ["/", "/mvp"];
+const ROUTES = ["/", "/mvp", "/blog"];
 const PORT = 5055;
 
 const MIME = {

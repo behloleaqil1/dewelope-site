@@ -1,17 +1,27 @@
 import { Helmet } from 'react-helmet-async';
+import { useSiteContent } from '../utils/useSiteContent.js';
 
 export default function HomeMeta() {
+  const { seo } = useSiteContent();
+  const title = seo.home?.title || seo.siteTitle;
+  const description = seo.home?.description || seo.defaultDescription;
+  const base = seo.canonicalBase || 'https://dewelope.com';
   return (
     <Helmet>
-      <title>DeWelope Softwares — Modern Software House</title>
-      <meta name="description" content="DeWelope Softwares is a focused software house building enterprise platforms, financial systems and branchless-banking infrastructure. Angular, React, Next.js, Spring Boot, microservices — shipped at banking scale." />
-      <meta property="og:title" content="DeWelope Softwares — Modern Software House" />
-      <meta property="og:description" content="We ship modern platforms at banking scale — full-stack, microservices, fintech, AI integration. Trusted by teams behind EasyPaisa, JazzCash, FoodPanda, ZTBL." />
-      <meta property="og:url" content="https://dewelope.com/" />
-      <meta property="og:image" content="https://dewelope.com/og-image.png" />
-      <meta name="twitter:title" content="DeWelope Softwares — Modern Software House" />
-      <meta name="twitter:description" content="We ship modern platforms at banking scale — full-stack, microservices, fintech, AI integration." />
-      <meta name="twitter:image" content="https://dewelope.com/og-image.png" />
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="keywords" content={seo.keywords} />
+      <meta name="robots" content={seo.robots || 'index,follow'} />
+      <link rel="canonical" href={`${base}/`} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={`${base}/`} />
+      <meta property="og:image" content={seo.ogImage} />
+      <meta name="twitter:card" content={seo.twitterCard || 'summary_large_image'} />
+      {seo.twitterSite ? <meta name="twitter:site" content={seo.twitterSite} /> : null}
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={seo.ogImage} />
     </Helmet>
   );
 }

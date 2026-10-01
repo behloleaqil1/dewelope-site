@@ -54,6 +54,10 @@ const ProjectDetail = ({project, onClose, layoutId}) => {
                                     <motion.img
                                         src={image}
                                         alt={name}
+                                        width="1400"
+                                        height="875"
+                                        loading="lazy"
+                                        decoding="async"
                                         className="w-full h-full object-cover"
                                         initial={{scale: 1.08}}
                                         animate={{scale: 1}}

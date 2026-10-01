@@ -3,7 +3,7 @@ import {VerticalTimeline, VerticalTimelineElement} from "react-vertical-timeline
 import {motion} from "framer-motion";
 import "react-vertical-timeline-component/style.min.css";
 import {styles} from "../style.js";
-import {experiences} from "../constants/index.js";
+import {useSiteContent} from "../utils/useSiteContent.js";
 import SectionWrapper from "../hoc/index.js";
 import {textVariant} from "../utils/motion.js";
 import {cn} from "../utils/cn.js";
@@ -107,6 +107,7 @@ const ExperienceCard = ({experience}) => {
 };
 
 const Experience = () => {
+    const {experiences} = useSiteContent();
     return (
         <>
             <motion.div variants={textVariant()}>
