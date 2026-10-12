@@ -598,6 +598,8 @@ const MOTIFS = {
     orbit: OrbitMotif,
 };
 
+export const MOTIF_KEYS = Object.keys(MOTIFS);
+
 // ----------------------------------------------------------------
 // Host canvas — IO-gated, mouse + click-interact
 // ----------------------------------------------------------------

@@ -1,9 +1,12 @@
 import React from "react";
-import {Field, TextInput, TextArea, SelectInput, StringList, ItemList} from "./fields.jsx";
+import {Field, TextInput, TextArea, SelectInput, StringList, ItemList, ColorInput, TagList} from "./fields.jsx";
 import {ImageInput} from "./ImageInput.jsx";
 import {ASSET_KEYS} from "../../utils/assetMap.js";
+import ProjectCanvas, {MOTIF_KEYS} from "../canvas/ProjectCanvas.jsx";
+import ServiceCanvas, {SHAPE_KEYS} from "../canvas/ServiceCanvas.jsx";
 
 const grid2 = "grid sm:grid-cols-2 gap-4";
+const previewCaption = "block text-[11px] text-muted mt-1.5";
 
 // --- Profile (identity, founder, socials) -----------------------------------
 
@@ -75,8 +78,6 @@ export function HeroStatsEditor({value, onChange}) {
 
 // --- Services ---------------------------------------------------------------
 
-const SHAPES = ["stack", "cluster", "vault", "gear", "neural", "hex"];
-
 export function ServicesEditor({value, onChange}) {
     return (
         <ItemList
@@ -86,10 +87,20 @@ export function ServicesEditor({value, onChange}) {
                 <div className="space-y-4">
                     <Field label="Title"><TextInput value={it.title} onChange={(v) => update({title: v})}/></Field>
                     <Field label="Description"><TextArea value={it.description} onChange={(v) => update({description: v})}/></Field>
-                    <div className="grid sm:grid-cols-3 gap-4">
-                        <Field label="Icon"><SelectInput value={it.icon} onChange={(v) => update({icon: v})} options={ASSET_KEYS}/></Field>
-                        <Field label="Shape"><SelectInput value={it.shape} onChange={(v) => update({shape: v})} options={SHAPES}/></Field>
-                        <Field label="Tint (hex)"><TextInput value={it.tint} onChange={(v) => update({tint: v})}/></Field>
+                    <div className="grid sm:grid-cols-[1fr_10rem] gap-4 items-start">
+                        <div className="space-y-4">
+                            <div className={grid2}>
+                                <Field label="Icon"><SelectInput value={it.icon} onChange={(v) => update({icon: v})} options={ASSET_KEYS}/></Field>
+                                <Field label="3D shape"><SelectInput value={it.shape || "stack"} onChange={(v) => update({shape: v})} options={SHAPE_KEYS} allowEmpty={false}/></Field>
+                            </div>
+                            <Field label="Glow color" group><ColorInput value={it.tint} onChange={(v) => update({tint: v})}/></Field>
+                        </div>
+                        <div>
+                            <div className="rounded-xl bg-primary border border-border overflow-hidden w-40 max-w-full">
+                                <ServiceCanvas shape={it.shape} tint={it.tint}/>
+                            </div>
+                            <span className={previewCaption}>Live preview</span>
+                        </div>
                     </div>
                 </div>
             )}
@@ -178,24 +189,28 @@ export function ProjectsEditor({value, onChange}) {
                         <Field label="Company / sector"><TextInput value={it.company} onChange={(v) => update({company: v})}/></Field>
                     </div>
                     <Field label="Description"><TextArea value={it.description} onChange={(v) => update({description: v})} rows={4}/></Field>
-                    <ImageInput label="Image" hint="Upload a screenshot, or leave empty to use the 3D motif cover" value={it.image} onChange={(v) => update({image: v})}/>
-                    <div className={grid2}>
-                        <Field label="Bundled image (fallback)" hint="Used only if no image uploaded above"><SelectInput value={it.imageKey} onChange={(v) => update({imageKey: v})} options={ASSET_KEYS}/></Field>
-                        <Field label="3D motif"><TextInput value={it.motif3D} onChange={(v) => update({motif3D: v})}/></Field>
+                    <ImageInput label="Image" hint="Shown in the case-study popup. The project card always uses the 3D motif below." value={it.image} onChange={(v) => update({image: v})}/>
+                    <Field label="Bundled image (fallback)" hint="Used only if no image uploaded above"><SelectInput value={it.imageKey} onChange={(v) => update({imageKey: v})} options={ASSET_KEYS}/></Field>
+                    <div className={grid2 + " items-start"}>
+                        <div className="space-y-4">
+                            <Field label="3D motif" hint="The animated cover on the project card">
+                                <SelectInput value={it.motif3D || "orbit"} onChange={(v) => update({motif3D: v})} options={MOTIF_KEYS} allowEmpty={false}/>
+                            </Field>
+                            <Field label="Glow color" group><ColorInput value={it.tint} onChange={(v) => update({tint: v})}/></Field>
+                        </div>
+                        <div>
+                            <div className="relative aspect-[16/11] rounded-xl overflow-hidden border border-border">
+                                <ProjectCanvas motif={it.motif3D} tint={it.tint || "#C0292F"}/>
+                            </div>
+                            <span className={previewCaption}>Live preview — hover and click it to see the interaction</span>
+                        </div>
                     </div>
                     <div className={grid2}>
                         <Field label="Live link"><TextInput value={it.live_link} onChange={(v) => update({live_link: v})}/></Field>
                         <Field label="Source link"><TextInput value={it.source_code_link} onChange={(v) => update({source_code_link: v})}/></Field>
                     </div>
-                    <Field label="Tags" hint="Comma-separate as name:color (e.g. react:blue-text-gradient)">
-                        <StringList
-                            items={(it.tags || []).map((t) => (t.color ? `${t.name}:${t.color}` : t.name))}
-                            onChange={(arr) => update({tags: arr.map((s) => {
-                                const [name, color] = s.split(":");
-                                return {name: (name || "").trim(), color: (color || "blue-text-gradient").trim()};
-                            })})}
-                            placeholder="Add tag"
-                        />
+                    <Field label="Tags" hint="The first 4 show on the project card; all show in the case-study popup." group>
+                        <TagList items={it.tags} onChange={(tags) => update({tags})}/>
                     </Field>
                     <Field label="Metric value"><TextInput value={it.metric?.value} onChange={(v) => update({metric: {...(it.metric || {}), value: v}})}/></Field>
                     <Field label="Metric label"><TextInput value={it.metric?.label} onChange={(v) => update({metric: {...(it.metric || {}), label: v}})}/></Field>

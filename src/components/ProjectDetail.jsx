@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {motion} from "framer-motion";
 import {FiArrowUpRight, FiExternalLink, FiGithub, FiX} from "react-icons/fi";
+import {tagColorClass} from "../utils/tagColors.js";
 
 const ProjectDetail = ({project, onClose, layoutId}) => {
     useEffect(() => {
@@ -109,7 +110,7 @@ const ProjectDetail = ({project, onClose, layoutId}) => {
                                         {tags.map((t) => (
                                             <span
                                                 key={`${name}-${t.name}`}
-                                                className="px-3 py-1 rounded-full text-[11px] font-mono bg-white/5 border border-white/10 text-white/85"
+                                                className={`px-3 py-1 rounded-full text-[11px] font-mono border ${tagColorClass(t.color)}`}
                                             >
                                                 #{t.name}
                                             </span>

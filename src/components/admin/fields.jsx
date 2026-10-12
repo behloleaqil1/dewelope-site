@@ -1,15 +1,19 @@
 import React from "react";
 import {FiChevronDown, FiChevronUp, FiPlus, FiTrash2} from "react-icons/fi";
+import {TAG_COLORS, TAG_COLOR_KEYS, DEFAULT_TAG_COLOR, tagColorKey, tagColorClass} from "../../utils/tagColors.js";
 
 // --- Primitive inputs -------------------------------------------------------
 
-export function Field({label, hint, children}) {
+// `group` renders a <div> instead of a <label>: use it when the field holds
+// several buttons, since a click anywhere in a <label> fires its first control.
+export function Field({label, hint, children, group = false}) {
+    const Wrapper = group ? "div" : "label";
     return (
-        <label className="block">
+        <Wrapper className="block">
             <span className="block text-xs font-mono uppercase tracking-widest text-muted mb-1.5">{label}</span>
             {children}
             {hint && <span className="block text-[11px] text-muted mt-1">{hint}</span>}
-        </label>
+        </Wrapper>
     );
 }
 
@@ -41,14 +45,118 @@ export function TextArea({value, onChange, placeholder, rows = 3}) {
     );
 }
 
-export function SelectInput({value, onChange, options}) {
+export function SelectInput({value, onChange, options, allowEmpty = true}) {
     return (
         <select value={value ?? ""} onChange={(e) => onChange(e.target.value)} className={inputCls}>
-            <option value="">— none —</option>
+            {allowEmpty && <option value="">— none —</option>}
             {options.map((o) => (
                 <option key={o} value={o}>{o}</option>
             ))}
         </select>
+    );
+}
+
+// --- Color: native picker + brand swatches ----------------------------------
+// Always emits a 6-digit hex; the 3D canvases append alpha digits to it.
+
+const BRAND_SWATCHES = ["#c0292f", "#d4494f", "#a3232a", "#e8e8e8"];
+const HEX6 = /^#[0-9a-f]{6}$/i;
+
+export function ColorInput({value, onChange, fallback = "#c0292f", swatches = BRAND_SWATCHES}) {
+    const hex = (HEX6.test(value || "") ? value : fallback).toLowerCase();
+    return (
+        <div className="flex items-center gap-2 flex-wrap">
+            <input
+                type="color"
+                value={hex}
+                onChange={(e) => onChange(e.target.value)}
+                title="Pick any color"
+                aria-label="Pick any color"
+                className="w-9 h-9 p-1 rounded-lg bg-surface-2 border border-border cursor-pointer"
+            />
+            {swatches.map((c) => (
+                <button
+                    key={c}
+                    type="button"
+                    onClick={() => onChange(c)}
+                    title={c}
+                    aria-label={`Use ${c}`}
+                    aria-pressed={hex === c}
+                    className={
+                        "w-7 h-7 rounded-full border border-white/20 transition-shadow " +
+                        (hex === c ? "ring-2 ring-white ring-offset-2 ring-offset-surface" : "hover:ring-1 hover:ring-white/40")
+                    }
+                    style={{background: c}}
+                />
+            ))}
+            <span className="font-mono text-xs text-muted ml-1">{hex}</span>
+        </div>
+    );
+}
+
+// --- Project tags: name + color, previewed as they render on the site -------
+
+export function TagList({items, onChange}) {
+    const list = items || [];
+    const update = (i, patch) => onChange(list.map((t, idx) => (idx === i ? {...t, ...patch} : t)));
+    const remove = (i) => onChange(list.filter((_, idx) => idx !== i));
+    const add = () => onChange([...list, {name: "", color: DEFAULT_TAG_COLOR}]);
+    const move = (i, dir) => {
+        const j = i + dir;
+        if (j < 0 || j >= list.length) return;
+        const next = [...list];
+        [next[i], next[j]] = [next[j], next[i]];
+        onChange(next);
+    };
+    return (
+        <div className="space-y-2">
+            {list.map((t, i) => {
+                const current = tagColorKey(t.color);
+                return (
+                    <div key={i} className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
+                        <div className="flex flex-col gap-0.5">
+                            <IconBtn onClick={() => move(i, -1)} title="Move up" disabled={i === 0}><FiChevronUp/></IconBtn>
+                            <IconBtn onClick={() => move(i, 1)} title="Move down" disabled={i === list.length - 1}><FiChevronDown/></IconBtn>
+                        </div>
+                        <div className="flex-1 min-w-[8rem]">
+                            <TextInput value={t.name} onChange={(v) => update(i, {name: v})} placeholder="Tag name"/>
+                        </div>
+                        <div className="flex items-center gap-1.5" role="group" aria-label="Tag color">
+                            {TAG_COLOR_KEYS.map((k) => (
+                                <button
+                                    key={k}
+                                    type="button"
+                                    onClick={() => update(i, {color: k})}
+                                    title={TAG_COLORS[k].label}
+                                    aria-label={TAG_COLORS[k].label}
+                                    aria-pressed={current === k}
+                                    className={
+                                        `h-7 px-2 rounded-full border text-[10px] font-mono ${TAG_COLORS[k].className} ` +
+                                        (current === k ? "ring-2 ring-white ring-offset-2 ring-offset-surface" : "opacity-70 hover:opacity-100")
+                                    }
+                                >
+                                    Aa
+                                </button>
+                            ))}
+                        </div>
+                        <IconBtn onClick={() => remove(i)} title="Remove" danger><FiTrash2/></IconBtn>
+                    </div>
+                );
+            })}
+            {list.some((t) => t.name) && (
+                <div className="flex flex-wrap gap-2 rounded-lg bg-primary border border-border p-3">
+                    {list.filter((t) => t.name).map((t, i) => (
+                        <span key={i} className={`px-2.5 py-1 rounded-full text-[10px] font-mono border ${tagColorClass(t.color)}`}>
+                            #{t.name}
+                        </span>
+                    ))}
+                </div>
+            )}
+            <button type="button" onClick={add}
+                    className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-brand-400 hover:text-brand">
+                <FiPlus/> Add tag
+            </button>
+        </div>
     );
 }
 

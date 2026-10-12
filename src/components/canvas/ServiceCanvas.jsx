@@ -307,6 +307,8 @@ const SHAPES = {
     hex: HexShape,
 };
 
+export const SHAPE_KEYS = Object.keys(SHAPES);
+
 // ----------------------------------------------------------------
 // Host canvas — IO-gated
 // ----------------------------------------------------------------

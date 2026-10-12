@@ -8,6 +8,7 @@ import SectionWrapper from "../hoc/index.js";
 import ProjectDetail from "./ProjectDetail.jsx";
 import ProjectCanvas from "./canvas/ProjectCanvas.jsx";
 import {isPrerender} from "../utils/prerender.js";
+import {tagColorClass} from "../utils/tagColors.js";
 
 const TILT_MAX = 8;
 
@@ -107,7 +108,7 @@ const ProjectCard = ({project, index, total, onOpen}) => {
                         {tags.slice(0, 4).map((t) => (
                             <span
                                 key={`${name}-${t.name}`}
-                                className="px-2.5 py-1 rounded-full text-[10px] font-mono bg-white/10 border border-white/10 text-white/85"
+                                className={`px-2.5 py-1 rounded-full text-[10px] font-mono border ${tagColorClass(t.color)}`}
                             >
                                 #{t.name}
                             </span>
