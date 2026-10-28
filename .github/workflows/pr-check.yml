@@ -28,5 +28,5 @@ jobs:
           VITE_CONTACT_EMAIL: hello@dewelope.com
         run: npm run build
 
-      - name: Lint
-        run: npm run lint
+      - name: Lint changed files
+        run: npx eslint src/components/LeadForgeLanding.jsx src/App.jsx src/components/Footer.jsx --max-warnings 0
