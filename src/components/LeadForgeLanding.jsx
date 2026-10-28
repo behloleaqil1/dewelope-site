@@ -1,12 +1,10 @@
-import React from "react";
 import {Link} from "react-router-dom";
 import {motion} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 import {
-    FiArrowUpRight, FiArrowRight, FiCheck, FiShield, FiMail, FiUsers, FiGlobe,
+    FiArrowUpRight, FiArrowRight, FiCheck, FiShield, FiMail, FiUsers,
     FiCheckCircle, FiLock, FiZap,
 } from "react-icons/fi";
-import {useSiteContent} from "../utils/useSiteContent.js";
 
 const CONTACT_EMAIL = "hello@dewelope.com";
 const MAILTO_LINK = `mailto:${CONTACT_EMAIL}?subject=LeadForge%20early%20access`;
@@ -66,8 +64,6 @@ const problems = [
 ];
 
 const LeadForgeLanding = () => {
-    const {profile} = useSiteContent();
-
     return (
         <div className="relative z-0 bg-[#0B1120] noise-overlay overflow-x-hidden min-h-screen">
             <Helmet>
@@ -185,7 +181,7 @@ const LeadForgeLanding = () => {
                     <motion.div {...fade()} className="text-center max-w-2xl mx-auto">
                         <div className="text-xs font-mono uppercase tracking-[0.3em] text-[#FB923C]">·  What LeadForge does</div>
                         <h2 className="mt-4 font-display font-bold text-[#F1F5F9] tracking-tight leading-[1.08] text-[32px] sm:text-[44px]">
-                            Everything you need, nothing you don't.
+                            Everything you need, nothing you don&apos;t.
                         </h2>
                     </motion.div>
 
@@ -203,11 +199,11 @@ const LeadForgeLanding = () => {
                 </div>
             </section>
 
-            {/* Who it's for */}
+            {/* Who it&apos;s for */}
             <section className="relative py-20 sm:py-28 border-t border-white/5">
                 <div className="max-w-6xl mx-auto px-6 sm:px-10">
                     <motion.div {...fade()} className="max-w-2xl mx-auto text-center">
-                        <div className="text-xs font-mono uppercase tracking-[0.3em] text-[#FB923C]">·  Who it's for</div>
+                        <div className="text-xs font-mono uppercase tracking-[0.3em] text-[#FB923C]">·  Who it&apos;s for</div>
                         <h2 className="mt-4 font-display font-bold text-[#F1F5F9] tracking-tight leading-[1.08] text-[32px] sm:text-[44px]">
                             Built for agencies and <span className="text-[#FB923C]">multilingual teams</span>.
                         </h2>
@@ -237,7 +233,7 @@ const LeadForgeLanding = () => {
                                 Get early access
                             </h2>
                             <p className="mt-5 text-[#94A3B8] text-[16px] sm:text-[18px] max-w-xl mx-auto leading-relaxed">
-                                LeadForge is in development. Request early access and we'll reach out when spots open up.
+                                LeadForge is in development. Request early access and we&apos;ll reach out when spots open up.
                             </p>
                             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
                                 <a href={MAILTO_LINK}
