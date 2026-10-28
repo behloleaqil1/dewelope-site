@@ -25,6 +25,14 @@ const Footer = () => {
                         A focused software house shipping modern platforms, financial systems and branchless-banking infrastructure from {profile.location}. Available for new engagements worldwide.
                     </p>
                     <p className="mt-4 text-secondary text-sm max-w-sm leading-relaxed">
+                        Our product:{" "}
+                        <a href="/leadforge"
+                           className="text-white underline decoration-white/30 underline-offset-2 hover:decoration-white transition-colors">
+                            LeadForge
+                        </a>{" "}
+                        — an AI outbound sales platform built for quality and compliance, currently in development.
+                    </p>
+                    <p className="mt-4 text-secondary text-sm max-w-sm leading-relaxed">
                         We also build and maintain{" "}
                         <a href="https://tools.dewelope.com"
                            className="text-white underline decoration-white/30 underline-offset-2 hover:decoration-white transition-colors">

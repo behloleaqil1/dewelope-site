@@ -9,6 +9,7 @@ import SideNav from "./components/SideNav.jsx";
 import SeoSchemas from "./components/SeoSchemas.jsx";
 import HomeMeta from "./components/HomeMeta.jsx";
 import MvpLanding from "./components/MvpLanding.jsx";
+import LeadForgeLanding from "./components/LeadForgeLanding.jsx";
 
 const Works = lazy(() => import("./components/Works.jsx"));
 const Process = lazy(() => import("./components/Process.jsx"));
@@ -96,6 +97,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/mvp" element={<MvpLanding/>}/>
+                <Route path="/leadforge" element={<LeadForgeLanding/>}/>
                 <Route path="/blog" element={
                     <Suspense fallback={null}><Blog/></Suspense>
                 }/>

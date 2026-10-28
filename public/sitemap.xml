@@ -13,6 +13,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dewelope.com/leadforge</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dewelope.com/blog</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
