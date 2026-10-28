@@ -36,7 +36,7 @@ const features = [
     {
         icon: <FiCheckCircle />,
         title: "Approval queue before sending",
-        desc: "Every email passes through a human approval queue. Nothing goes out until you review and approve it.",
+        desc: "An approval queue lets you review and approve emails before they go out.",
     },
     {
         icon: <FiMail />,
@@ -46,12 +46,12 @@ const features = [
     {
         icon: <FiShield />,
         title: "Suppression and compliance",
-        desc: "Hashed suppression lists, unsubscribe handling, and compliance tools to keep your outreach clean and lawful.",
+        desc: "Hashed suppression lists, unsubscribe handling and compliance tools that help you keep your outreach clean and compliant.",
     },
     {
         icon: <FiLock />,
         title: "Team roles and client workspaces",
-        desc: "For agencies: separate workspaces per client, role-based access, and audit trails for every action.",
+        desc: "For agencies: separate workspaces per client, role-based access and an audit log.",
     },
 ];
 
